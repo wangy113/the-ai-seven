@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-20T19:02:22.915Z",
+        "reason": "Claude: incumbent groovy retro world deliberately built on cream (footer cites the groovy design spec); polish pass preserves it"
+      }
+    ]
+  }
+}
