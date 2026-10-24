@@ -6,58 +6,82 @@
   <meta name="theme-color" content="#fdf6e3">
   <meta name="description" content="A playful, practical field guide to seven everyday AI skills for higher education professionals.">
   <title>The AI Seven | A practical field guide</title>
+  <link rel="canonical" href="https://wangy113.github.io/the-ai-seven/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wangy113.github.io/the-ai-seven/">
+  <meta property="og:title" content="The AI Seven | A practical field guide">
+  <meta property="og:description" content="Seven practical AI skills for everyday work in higher education. Learn one idea, see a real example, and try something useful right away.">
+  <meta property="og:image" content="https://wangy113.github.io/the-ai-seven/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The AI Seven. Work smarter. Stay curious. A retro orange record with a big seven.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Righteous&display=swap" rel="stylesheet">
   <style>
-    :root { --cream:#fdf6e3; --paper:#fffdf6; --ink:#2d1b00; --orange:#e8621a; --orange-deep:#c2500f; --mustard:#d4a017; --olive:#6b7c35; --rust:#b7410e; --tint:#fff0d8; --leaf:#eef0d9; --soft:#e9ddc3; --t-label:13px; --t-small:15px; --t-ui:15px; --t-body:17px; --t-lead:20px; --t-card:22px; --t-sub:26px; --border:3px solid var(--ink); --shadow:7px 7px 0 var(--ink); }
+    :root {
+      --cream:#fdf6e3; --paper:#fffdf6; --ink:#2d1b00; --orange:#e8621a; --orange-deep:#c2500f; --mustard:#d4a017; --olive:#6b7c35; --rust:#b7410e; --tint:#fff0d8; --leaf:#eef0d9; --soft:#e9ddc3;
+      /* Four type sizes, no more: small (labels, buttons, notes), body (reading text), title (cards and panels), display (page and section headings). */
+      --fs-small:15px; --fs-body:18px; --fs-title:26px; --fs-display:clamp(42px,6.2vw,76px);
+      --border:3px solid var(--ink); --shadow:7px 7px 0 var(--ink);
+    }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; scrollbar-color:var(--ink) var(--cream); }
-    body { margin:0; background:var(--cream); color:var(--ink); font-family:'DM Sans','Inter',system-ui,sans-serif; line-height:1.5; overflow-x:hidden; caret-color:var(--orange-deep); }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:'DM Sans','Inter',system-ui,sans-serif; font-size:var(--fs-body); line-height:1.55; overflow-x:hidden; caret-color:var(--orange-deep); }
     ::selection { background:var(--mustard); color:var(--ink); }
     h1,h2,h3,h4,.brand,.num { font-family:'Righteous','Comfortaa','Arial Rounded MT Bold',sans-serif; font-weight:400; }
+    [hidden] { display:none !important; }
     .visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
     .icon { width:1em; height:1em; flex:0 0 auto; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
     a { color:inherit; } button,input,select,textarea { font:inherit; }
     button { cursor:pointer; } button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible { outline:4px solid var(--olive); outline-offset:4px; }
     .shell { width:min(1180px, calc(100% - 44px)); margin-inline:auto; }
+
+    /* Top bar */
     .topbar { position:sticky; top:0; z-index:20; background:rgba(253,246,227,.96); backdrop-filter:blur(12px); border-bottom:2px solid var(--ink); }
     .top-inner { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    .brand { display:inline-flex; align-items:center; gap:11px; text-decoration:none; font-size:21px; white-space:nowrap; }
-    .logo-mark { width:43px; height:43px; background:var(--orange-deep); color:#fff; border:var(--border); border-radius:50%; box-shadow:3px 3px 0 var(--ink); display:grid; place-items:center; font-size:21px; transform:rotate(-9deg); }
-    .nav-links { display:flex; gap:23px; align-items:center; font-weight:800; font-size:var(--t-ui); }
+    .brand { display:inline-flex; align-items:center; gap:11px; text-decoration:none; font-size:var(--fs-body); white-space:nowrap; }
+    .logo-mark { width:43px; height:43px; background:var(--orange-deep); color:#fff; border:var(--border); border-radius:50%; box-shadow:3px 3px 0 var(--ink); display:grid; place-items:center; font-size:var(--fs-body); transform:rotate(-9deg); }
+    .nav-links { display:flex; gap:23px; align-items:center; font-weight:800; font-size:var(--fs-small); }
     .nav-links a { text-decoration:none; border-bottom:2px solid transparent; }
     .nav-links a:hover { border-bottom-color:var(--ink); }
-    .progress-mini { display:flex; align-items:center; gap:10px; font-size:var(--t-label); font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .progress-mini { display:flex; align-items:center; gap:10px; font-size:var(--fs-small); font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums; }
     .progress-track { width:90px; height:12px; background:white; border:2px solid var(--ink); border-radius:40px; overflow:hidden; }
     .progress-fill { display:block; width:0; height:100%; background:var(--olive); transition:width .3s ease; }
+
+    /* Hero */
     .hero { position:relative; overflow:hidden; padding:80px 0 89px; background:radial-gradient(circle at 68% 25%,rgba(212,160,23,.16),transparent 34%),radial-gradient(circle at 15% 88%,rgba(232,98,26,.11),transparent 32%),var(--cream); }
     .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:45px; }
-    h1 { margin:0 0 24px; font-size:clamp(60px,8vw,110px); letter-spacing:-.028em; line-height:.94; }
+    h1 { margin:0 0 24px; font-size:var(--fs-display); letter-spacing:-.028em; line-height:.98; }
     h1 .accent { color:var(--orange); display:block; } h1 .underline-scribble { position:relative; white-space:nowrap; }
     h1 .underline-scribble:after { content:''; position:absolute; height:10px; left:3%; right:4%; bottom:1px; border-radius:50%; background:var(--mustard); transform:rotate(-2deg); z-index:-1; }
-    .hero-p { max-width:545px; font-size:var(--t-lead); line-height:1.6; text-wrap:pretty; color:#5d492e; margin:0 0 30px; }
+    .hero-p { max-width:545px; font-size:var(--fs-body); line-height:1.6; text-wrap:pretty; color:#5d492e; margin:0 0 30px; }
     .hero-actions { display:flex; flex-wrap:wrap; gap:13px; align-items:center; }
-    .btn { border:var(--border); padding:13px 24px; border-radius:100px; background:white; color:var(--ink); display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:4px 4px 0 var(--ink); font-weight:800; font-size:var(--t-ui); text-decoration:none; transition:transform .16s,box-shadow .16s; }
+    .btn { border:var(--border); padding:13px 24px; border-radius:100px; background:white; color:var(--ink); display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:4px 4px 0 var(--ink); font-weight:800; font-size:var(--fs-small); text-decoration:none; transition:transform .16s,box-shadow .16s; }
     .btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
     .btn:active { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--ink); }
     .btn:disabled { opacity:.45; cursor:not-allowed; transform:none; box-shadow:4px 4px 0 var(--ink); }
-    .btn .icon { font-size:17px; }
+    .btn .icon { width:18px; height:18px; }
     .btn.orange { background:var(--orange-deep); color:#fff; } .btn.mustard { background:var(--mustard); } .btn.olive { background:var(--olive); color:white; }
-    .hero-note { margin-top:23px; font-size:var(--t-small); color:#705e47; }
+    .hero-note { margin-top:23px; font-size:var(--fs-small); color:#705e47; }
     .hero-art { min-height:435px; position:relative; isolation:isolate; }
     .art-back { position:absolute; width:83%; height:89%; left:9%; top:6%; background:#efdca5; border:4px solid var(--ink); border-radius:41% 59% 53% 47% / 54% 35% 65% 46%; transform:rotate(12deg); box-shadow:9px 9px 0 var(--ink); }
     .sunburst { position:absolute; width:116px; height:116px; right:6%; top:-3%; z-index:2; transform:rotate(14deg); }
     .main-disc { width:286px; height:286px; position:absolute; z-index:3; top:55px; left:18%; background:var(--orange); border:5px solid var(--ink); border-radius:50%; box-shadow:9px 9px 0 var(--ink); display:flex; align-items:center; justify-content:center; transform:rotate(-8deg); }
-    .disc-ring { width:215px; height:215px; border-radius:50%; border:7px solid var(--mustard); display:grid; place-items:center; box-shadow:inset 0 0 0 5px var(--ink); color:var(--cream); }
-    .disc-ring span { font-family:'Righteous',sans-serif; font-size:132px; line-height:1; text-shadow:5px 5px 0 var(--ink); }
-    .orbit-star { position:absolute; z-index:4; left:4%; top:26%; font-size:68px; color:var(--olive); -webkit-text-stroke:3px var(--ink); transform:rotate(10deg); }
-    .art-label { position:absolute; z-index:5; right:2%; bottom:48px; background:var(--leaf); border:var(--border); border-radius:17px 29px 17px 29px; box-shadow:6px 6px 0 var(--ink); padding:18px 23px; font-family:'Righteous',sans-serif; font-size:23px; line-height:1.12; transform:rotate(7deg); }
+    .disc-ring { width:215px; height:215px; border-radius:50%; border:7px solid var(--mustard); display:grid; place-items:center; box-shadow:inset 0 0 0 5px var(--ink); }
+    .disc-seven { width:150px; height:150px; overflow:visible; }
+    .orbit-star { position:absolute; z-index:4; left:4%; top:26%; width:64px; height:64px; transform:rotate(10deg); }
+    .art-label { position:absolute; z-index:5; right:2%; bottom:48px; background:var(--leaf); border:var(--border); border-radius:17px 29px 17px 29px; box-shadow:6px 6px 0 var(--ink); padding:18px 23px; font-family:'Righteous',sans-serif; font-size:var(--fs-title); line-height:1.12; transform:rotate(7deg); }
     .art-dot { position:absolute; width:29px; height:29px; border:3px solid var(--ink); background:var(--mustard); border-radius:50%; right:13%; top:35%; z-index:4; }
     .wave { display:block; position:absolute; height:38px; width:100%; bottom:-1px; left:0; }
+
+    /* Skill cards */
     .section { padding:72px 0; } .section-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:end; gap:20px; margin-bottom:29px; }
-    h2 { font-size:clamp(38px,5vw,61px); line-height:1.04; margin:0; letter-spacing:-.012em; }
-    .section-intro { color:#6a5236; max-width:380px; font-size:var(--t-body); line-height:1.55; margin:0; text-wrap:pretty; }
+    h2 { font-size:var(--fs-display); line-height:1.04; margin:0; letter-spacing:-.012em; }
+    .section-intro { color:#6a5236; max-width:380px; font-size:var(--fs-body); line-height:1.55; margin:0; text-wrap:pretty; }
     .skill-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
     .skill-card { grid-column:span 3; appearance:none; color:var(--ink); text-align:left; display:grid; grid-template-columns:1fr auto; grid-template-rows:auto 1fr auto; grid-template-areas:"num sym" "text text" "foot foot"; align-items:start; min-height:202px; position:relative; background:var(--paper); border:var(--border); border-radius:29px 18px 29px 18px; box-shadow:5px 5px 0 var(--ink); padding:22px 20px; transition:transform .16s,box-shadow .16s,background .16s; }
     .skill-card:hover { transform:translateY(-4px); box-shadow:5px 9px 0 var(--ink); }
@@ -66,78 +90,178 @@
     .skill-card:nth-child(5) { background:#f2f0dc; } .skill-card:nth-child(5).active { background:#dfe7b6; }
     .skill-card:nth-child(7) { background:#fff0d9; }
     .skill-card:nth-child(n+5) { grid-column:span 4; }
-    .num { grid-area:num; display:grid; place-items:center; width:39px; height:39px; background:var(--mustard); border:2px solid var(--ink); border-radius:50%; font-size:var(--t-small); }
+    .num { grid-area:num; display:grid; place-items:center; width:39px; height:39px; background:var(--mustard); border:2px solid var(--ink); border-radius:50%; font-size:var(--fs-small); }
     .skill-card.tried .num { background:var(--olive); color:#fff; }
-    .card-symbol { grid-area:sym; display:flex; font-size:30px; color:var(--orange-deep); }
+    .card-symbol { grid-area:sym; display:flex; color:var(--orange-deep); }
+    .card-symbol .icon { width:30px; height:30px; }
     .card-text { grid-area:text; margin-top:20px; }
-    .skill-card strong { font-family:'Righteous',sans-serif; font-size:var(--t-card); line-height:1.12; font-weight:400; display:block; margin-bottom:9px; text-wrap:balance; }
-    .skill-card small { font-size:var(--t-small); line-height:1.4; color:#65523a; font-weight:500; }
+    .skill-card strong { font-family:'Righteous',sans-serif; font-size:var(--fs-title); line-height:1.12; font-weight:400; display:block; margin-bottom:9px; text-wrap:balance; }
+    .skill-card small { font-size:var(--fs-small); line-height:1.4; color:#65523a; font-weight:500; }
     .card-foot { grid-area:foot; padding-top:15px; display:flex; align-items:center; justify-content:space-between; width:100%; min-height:37px; }
-    .mini-arrow { display:flex; font-size:22px; margin-left:auto; transition:transform .16s; }
+    .mini-arrow { display:flex; margin-left:auto; transition:transform .16s; }
+    .mini-arrow .icon { width:22px; height:22px; }
     .skill-card:hover .mini-arrow { transform:translateX(3px); }
-    .tried-tag { display:none; align-items:center; gap:5px; font-size:var(--t-label); font-weight:800; color:var(--olive); text-transform:uppercase; letter-spacing:.08em; }
+    .tried-tag { display:none; align-items:center; gap:5px; font-size:var(--fs-small); font-weight:800; color:var(--olive); text-transform:uppercase; letter-spacing:.08em; }
     .skill-card.tried .tried-tag { display:inline-flex; }
+    .guardrail { display:flex; gap:14px; align-items:flex-start; margin-top:30px; padding:16px 20px; background:var(--leaf); border:2px solid var(--ink); border-radius:18px 12px 18px 12px; }
+    .guardrail .icon { width:28px; height:28px; color:var(--olive); margin-top:1px; }
+    .guardrail p { margin:0; line-height:1.5; text-wrap:pretty; }
+
+    /* Skill detail */
     .detail-wrap { background:var(--tint); padding:76px 0; position:relative; border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); }
-    .detail-shell { position:relative; } .detail-sticker { position:absolute; right:7px; top:-46px; padding:12px 18px; border-radius:50%; background:var(--mustard); border:var(--border); transform:rotate(11deg); font:17px 'Righteous','Comfortaa',sans-serif; box-shadow:4px 4px 0 var(--ink); z-index:2; }
+    .detail-shell { position:relative; } .detail-sticker { position:absolute; right:7px; top:-46px; padding:12px 18px; border-radius:50%; background:var(--mustard); border:var(--border); transform:rotate(11deg); font:var(--fs-small) 'Righteous','Comfortaa',sans-serif; box-shadow:4px 4px 0 var(--ink); z-index:2; }
     .detail-card { scroll-margin-top:110px; border:4px solid var(--ink); background:var(--paper); box-shadow:10px 10px 0 var(--ink); border-radius:39px 20px 40px 20px; padding:38px; }
     .detail-card:focus { outline:none; } .detail-card:focus-visible { outline:4px solid var(--olive); outline-offset:6px; }
-    .detail-heading { display:flex; gap:19px; align-items:center; margin-bottom:31px; } .big-num { flex:0 0 75px; width:75px; height:75px; border-radius:50%; border:var(--border); background:var(--mustard); display:grid; place-items:center; font:31px 'Righteous','Comfortaa',sans-serif; }
-    .detail-heading h3 { margin:0 0 5px; font-size:clamp(29px,4vw,46px); line-height:1.08; } .detail-heading p { margin:0; font-size:var(--t-lead); color:#71583a; }
+    .detail-heading { display:flex; gap:19px; align-items:center; margin-bottom:31px; }
+    .big-num { flex:0 0 75px; width:75px; height:75px; border-radius:50%; border:var(--border); background:var(--mustard); display:grid; place-items:center; font:var(--fs-title) 'Righteous','Comfortaa',sans-serif; }
+    .detail-heading h3 { margin:0 0 5px; font-size:var(--fs-title); line-height:1.12; } .detail-heading p { margin:0; color:#71583a; }
     .detail-columns { display:grid; grid-template-columns:1fr 1fr; gap:30px; } .detail-copy { padding:5px 5px 0; }
-    .micro { text-transform:uppercase; letter-spacing:.08em; font-weight:800; font-size:var(--t-label); color:var(--rust); margin:0 0 7px; }
-    .detail-copy p { margin:0 0 22px; font-size:var(--t-body); line-height:1.6; text-wrap:pretty; }
-    .example-box { background:var(--leaf); border:2px solid var(--ink); border-radius:20px 12px 21px 12px; padding:17px 18px; margin-bottom:15px; }
-    .example-box p { margin:0; } .one-move { font-size:var(--t-small)!important; margin-top:17px!important; color:#625038; }
-    .prompt-box { background:var(--ink); color:#fff7e7; border:3px solid var(--ink); border-radius:21px 30px 21px 30px; padding:25px; align-self:stretch; display:flex; flex-direction:column; min-width:0; }
-    .prompt-box .micro { color:#f6c96b; } .prompt-box pre { white-space:pre-wrap; overflow-wrap:anywhere; font:500 var(--t-body)/1.75 'DM Sans',sans-serif; margin:12px 0 23px; flex:1; }
+    .micro { text-transform:uppercase; letter-spacing:.08em; font-weight:800; font-size:var(--fs-small); color:var(--rust); margin:0 0 7px; }
+    .detail-copy p { margin:0 0 22px; line-height:1.6; text-wrap:pretty; }
+    .guide-list { list-style:none; counter-reset:q; margin:0 0 24px; padding:0; display:grid; gap:12px; }
+    .guide-list li { counter-increment:q; display:grid; grid-template-columns:32px 1fr; gap:12px; line-height:1.5; }
+    .guide-list li::before { content:counter(q); display:grid; place-items:center; width:32px; height:32px; border-radius:50%; border:2px solid var(--ink); background:var(--tint); font:var(--fs-small) 'Righteous','Comfortaa',sans-serif; }
+    .guide-list b { display:block; }
+    .example-box { background:var(--leaf); border:2px solid var(--ink); border-radius:20px 12px 21px 12px; padding:17px 18px; margin-bottom:20px; }
+    .example-box p { margin:0; }
+    .note { margin:0 0 16px; } .detail-copy .note p { margin:0; font-size:var(--fs-small); line-height:1.5; color:#625038; }
+    .prompt-box { background:var(--ink); color:#fff7e7; border:3px solid var(--ink); border-radius:21px 30px 21px 30px; padding:25px; align-self:start; position:sticky; top:100px; display:flex; flex-direction:column; min-width:0; }
+    .prompt-box .micro { color:#f6c96b; }
+    .prompt-text { font-weight:500; line-height:1.9; margin:12px 0 14px; overflow-wrap:anywhere; }
+    .blank { font:inherit; line-height:1.3; color:#fff7e7; background:rgba(253,246,227,.1); border:0; border-bottom:2px dashed var(--mustard); border-radius:6px 6px 0 0; padding:0 6px; margin:0 2px; max-width:100%; }
+    .blank::placeholder { color:#f6c96b; opacity:1; font-style:italic; }
+    .blank:focus { background:rgba(253,246,227,.18); border-bottom-style:solid; }
+    .prompt-box .blank:focus-visible { outline:3px solid var(--mustard); outline-offset:2px; }
+    .paste-slot { color:#f6c96b; font-style:italic; }
+    .prompt-hint { font-size:var(--fs-small); color:#e9d9b8; margin:0 0 18px; line-height:1.45; }
     .prompt-box .btn { align-self:flex-start; }
     .detail-actions { border-top:2px dashed #d7bd91; padding-top:27px; margin-top:28px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
-    .action-tip { font-size:var(--t-small); color:#725c40; } .action-tip b { color:var(--ink); }
+    .action-tip { font-size:var(--fs-small); color:#725c40; }
+    .detail-buttons { display:flex; flex-wrap:wrap; gap:12px; }
+    .skill-pager { display:flex; justify-content:space-between; gap:18px; margin-top:34px; }
+    .pager-link { display:flex; flex-direction:column; gap:4px; max-width:48%; text-decoration:none; background:var(--paper); border:var(--border); border-radius:22px 14px 22px 14px; box-shadow:4px 4px 0 var(--ink); padding:14px 20px; transition:transform .16s,box-shadow .16s; }
+    .pager-link:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
+    .pager-link.next { margin-left:auto; text-align:right; align-items:flex-end; }
+    .pager-dir { display:inline-flex; align-items:center; gap:6px; font-size:var(--fs-small); font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--rust); }
+    .pager-dir .icon { width:16px; height:16px; }
+    .pager-title { font-family:'Righteous','Comfortaa',sans-serif; line-height:1.25; }
+
+    /* Practice lab */
     .practice-section { padding:77px 0 90px; background:var(--leaf); }
     .lab-frame { border:4px solid var(--ink); border-radius:29px 19px 29px 19px; box-shadow:var(--shadow); background:var(--paper); overflow:hidden; }
-    .lab-top { padding:22px 30px; background:var(--mustard); border-bottom:3px solid var(--ink); display:flex; justify-content:space-between; align-items:center; gap:13px; }
-    .lab-top strong { font-family:'Righteous',sans-serif; font-size:var(--t-sub); font-weight:400; } .lab-top span { font-size:var(--t-label); font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
-    .lab-body { padding:30px; min-height:240px; } .lab-body h4 { font-size:var(--t-sub); line-height:1.15; margin:0 0 10px; } .lab-body p { font-size:var(--t-body); line-height:1.55; color:#634d31; margin:0 0 20px; max-width:720px; }
+    .lab-top { padding:18px 30px; background:var(--mustard); border-bottom:3px solid var(--ink); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:13px; }
+    .lab-top strong { font-family:'Righteous',sans-serif; font-size:var(--fs-title); font-weight:400; }
+    .lab-chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .lab-chip { width:40px; height:40px; padding:0; border-radius:50%; border:2px solid var(--ink); background:var(--paper); color:var(--ink); font:var(--fs-small) 'Righteous','Comfortaa',sans-serif; box-shadow:2px 2px 0 var(--ink); display:grid; place-items:center; transition:transform .16s,box-shadow .16s; }
+    .lab-chip:hover { transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--ink); }
+    .lab-chip.selected { background:var(--orange-deep); color:#fff; }
+    .lab-body { padding:30px; min-height:240px; } .lab-body h4 { font-size:var(--fs-title); line-height:1.15; margin:0 0 10px; } .lab-body p { line-height:1.55; color:#634d31; margin:0 0 20px; max-width:720px; }
     .lab-control-row { display:flex; flex-wrap:wrap; gap:11px; }
-    .lab-pill { border:2px solid var(--ink); background:var(--paper); border-radius:100px; padding:10px 16px; color:var(--ink); font-size:var(--t-ui); font-weight:800; box-shadow:3px 3px 0 var(--ink); transition:transform .16s,box-shadow .16s; }
+    .lab-pill { border:2px solid var(--ink); background:var(--paper); border-radius:100px; padding:10px 16px; color:var(--ink); font-size:var(--fs-small); font-weight:800; box-shadow:3px 3px 0 var(--ink); transition:transform .16s,box-shadow .16s; }
     .lab-pill:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink); }
     .lab-pill:active { transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink); }
     .lab-pill.selected { background:var(--orange-deep); color:white; }
     .lab-result { padding:21px; margin-top:19px; border:2px solid var(--ink); border-radius:19px 11px 19px 11px; background:var(--tint); }
-    .lab-result strong { font-family:'Righteous',sans-serif; font-weight:400; font-size:var(--t-card); line-height:1.15; display:block; margin-bottom:8px; } .lab-result p { margin:0; font-size:var(--t-body); line-height:1.55; }
+    .lab-result strong { font-family:'Righteous',sans-serif; font-weight:400; font-size:var(--fs-title); line-height:1.15; display:block; margin-bottom:8px; } .lab-result p { margin:0; line-height:1.55; }
+    .model-facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin:14px 0 0; }
+    .model-facts dt { font-size:var(--fs-small); font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--rust); margin-bottom:4px; }
+    .model-facts dd { margin:0; line-height:1.5; }
     .field-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; } .field { display:block; }
-    .field > span { display:block; font-size:var(--t-label); font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin-bottom:7px; }
+    .field > span { display:block; font-size:var(--fs-small); font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin-bottom:7px; }
     .field input,.field textarea,.field select { width:100%; border:2px solid var(--ink); background:#fff; color:var(--ink); border-radius:11px; padding:11px 13px; min-height:48px; }
     .field textarea { resize:vertical; min-height:80px; }
     .wide { grid-column:1/-1; } .actions-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; align-items:center; }
-    .output { white-space:pre-wrap; overflow-wrap:anywhere; background:var(--leaf); border:2px solid var(--ink); border-radius:14px; padding:18px; line-height:1.6; font-size:var(--t-small); margin-top:17px; }
+    .output { white-space:pre-wrap; overflow-wrap:anywhere; background:var(--leaf); border:2px solid var(--ink); border-radius:14px; padding:18px; line-height:1.6; font-size:var(--fs-small); margin-top:17px; }
     .checks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-    .check { border:2px solid var(--ink); background:var(--paper); padding:14px 16px; border-radius:12px; display:flex; gap:12px; align-items:center; font-weight:700; font-size:var(--t-small); }
+    .check { border:2px solid var(--ink); background:var(--paper); padding:14px 16px; border-radius:12px; display:flex; gap:12px; align-items:center; font-weight:700; font-size:var(--fs-small); }
     .check input { width:21px; height:21px; accent-color:var(--olive); flex:0 0 auto; }
-    .stepper { display:flex; gap:10px; margin:6px 0 15px; } .step { display:grid; place-items:center; border:2px solid var(--ink); border-radius:50%; width:35px; height:35px; background:white; font:var(--t-small) 'Righteous','Comfortaa',sans-serif; }
+    .stepper { display:flex; gap:10px; margin:6px 0 15px; } .step { display:grid; place-items:center; border:2px solid var(--ink); border-radius:50%; width:35px; height:35px; background:white; font:var(--fs-small) 'Righteous','Comfortaa',sans-serif; }
     .step.current { background:var(--orange-deep); color:white; } .step.complete { background:var(--olive); color:white; }
-    .html-lab { display:grid; grid-template-columns:1.05fr .95fr; gap:18px; }
-    .code-panel { min-width:0; } .code-panel pre { background:var(--ink); color:#fdf6e3; padding:17px; border-radius:15px; font:14px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; margin:12px 0 0; min-height:175px; }
+    .html-lab { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; margin-top:18px; }
+    .code-panel { min-width:0; }
+    .code-panel pre { background:var(--ink); color:#fdf6e3; padding:14px 12px 14px 4px; border-radius:15px; font:var(--fs-small)/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; margin:12px 0 0; min-height:175px; }
+    .code-line { display:grid; grid-template-columns:2.8em minmax(0,1fr); border-radius:6px; padding:2px 0; }
+    .code-mark { color:var(--mustard); font-weight:700; text-align:center; }
+    .code-line.flagged { background:rgba(212,160,23,.24); }
+    .code-panel.is-fixed .code-line.flagged { background:rgba(143,165,72,.32); } .code-panel.is-fixed .code-mark { color:#d3e09b; }
     .preview-panel { border:2px solid var(--ink); background:var(--cream); border-radius:16px; padding:16px; display:flex; flex-direction:column; }
-    .preview-panel iframe { border:2px dashed #ac9776; border-radius:10px; background:white; width:100%; flex:1; min-height:160px; }
+    .preview-panel iframe { border:2px dashed #ac9776; border-radius:10px; background:white; width:100%; flex:1; min-height:280px; }
+    .issue-list { margin:6px 0 0; padding-left:26px; display:grid; gap:8px; line-height:1.5; }
+    .issue-list code { font:var(--fs-small) ui-monospace,SFMono-Regular,Consolas,monospace; background:var(--paper); border:1px solid #d7bd91; border-radius:5px; padding:1px 5px; }
     .estimate-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
     .field input[type=number] { font-variant-numeric:tabular-nums; }
     .hours-result { margin-top:19px; padding:19px 25px; border:3px solid var(--ink); background:var(--orange-deep); color:white; border-radius:19px; display:flex; justify-content:space-between; align-items:center; gap:15px; font-variant-numeric:tabular-nums; }
-    .hours-result small { font-size:var(--t-small); font-weight:700; } #hoursEquation { font-size:var(--t-small); opacity:.95; } .hours-result strong { font:40px 'Righteous','Comfortaa',sans-serif; }
-    .small-note { font-size:var(--t-small)!important; margin:12px 0 0!important; }
+    .hours-result small { font-size:var(--fs-small); font-weight:700; } #hoursEquation { font-size:var(--fs-small); opacity:.95; } .hours-result strong { font:var(--fs-title) 'Righteous','Comfortaa',sans-serif; }
+    .lab-body .small-note { font-size:var(--fs-small); margin:12px 0 0; }
+
+    /* Banner, footer, toast, completion */
     .bottom-banner { padding:72px 0; background:var(--orange); border-top:3px solid var(--ink); }
     .banner-inner { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; }
-    .bottom-banner h2 { color:var(--paper); max-width:720px; } .bottom-banner p { color:var(--ink); font-weight:700; font-size:var(--t-lead); line-height:1.5; max-width:650px; margin:16px 0 0; }
-    .footer { background:var(--ink); color:#fff6e6; padding:33px 0; font-size:var(--t-small); }
+    .bottom-banner h2 { color:var(--paper); max-width:720px; } .bottom-banner p { color:var(--ink); font-weight:700; line-height:1.5; max-width:650px; margin:16px 0 0; }
+    .banner-actions { display:flex; flex-direction:column; gap:14px; }
+    .footer { background:var(--ink); color:#fff6e6; padding:33px 0; font-size:var(--fs-small); }
     .footer-inner { display:flex; justify-content:space-between; gap:25px; flex-wrap:wrap; }
     .footer a { color:#ffd083; text-underline-offset:3px; } .footer a:hover { text-decoration-thickness:2px; } .footer-links { display:flex; flex-wrap:wrap; gap:17px; }
-    .toast { position:fixed; z-index:50; bottom:24px; left:50%; transform:translate(-50%,30px); opacity:0; pointer-events:none; background:var(--ink); color:white; padding:12px 20px; border-radius:80px; border:2px solid var(--mustard); transition:opacity .2s,transform .2s; font-weight:800; font-size:var(--t-small); }
+    .toast { position:fixed; z-index:50; bottom:24px; left:50%; transform:translate(-50%,30px); opacity:0; pointer-events:none; background:var(--ink); color:white; padding:12px 20px; border-radius:80px; border:2px solid var(--mustard); transition:opacity .2s,transform .2s; font-weight:800; font-size:var(--fs-small); max-width:calc(100% - 32px); text-align:center; }
     .toast.show { opacity:1; transform:translate(-50%,0); }
-    @media(max-width:1000px){ :root{--t-card:20px} .hero-art{transform:scale(.91);transform-origin:center;} .hero-grid{gap:5px;} h1{font-size:clamp(62px,7.9vw,92px);} }
-    @media(max-width:760px){ .shell{width:min(100% - 32px,1180px)} .top-inner{min-height:66px} .nav-links{display:none} .progress-track{width:58px} .brand{font-size:18px} .logo-mark{width:38px;height:38px} .hero{padding:54px 0 61px;} .hero-grid{grid-template-columns:1fr;} h1{font-size:clamp(60px,11vw,85px)} .hero-art{min-height:355px;transform:scale(.8);margin:-28px -20px -32px;transform-origin:center} :root{--t-lead:18px;--t-sub:23px} .section{padding:53px 0} .skill-grid{grid-template-columns:1fr;gap:12px} .skill-card,.skill-card:nth-child(n+5){grid-column:auto;min-height:0;padding:14px 16px;grid-template-columns:auto 1fr auto;grid-template-rows:auto;grid-template-areas:"num text sym" "num foot foot";column-gap:14px;align-items:center} .card-text{margin-top:0} .skill-card strong{margin-bottom:3px} .card-symbol{font-size:26px} .card-foot{padding-top:0;min-height:0} .mini-arrow{display:none} .skill-card.tried .card-foot{padding-top:6px} .lab-top span{display:none} .detail-wrap{padding:57px 0} .detail-card{padding:23px} .detail-heading{gap:11px} .detail-columns{grid-template-columns:1fr} .detail-sticker{right:4px;top:-43px;font-size:13px} .big-num{flex-basis:55px;height:55px;width:55px;font-size:24px} .practice-section{padding:53px 0 68px} .lab-top,.lab-body{padding:20px} .html-lab{grid-template-columns:1fr} .banner-inner{grid-template-columns:1fr} }
-    @media(max-width:480px){ h1{font-size:clamp(57px,13.5vw,74px)} .hero-art{min-height:290px;transform:scale(.67);margin:-44px -45px -70px} .field-grid,.checks,.estimate-grid{grid-template-columns:1fr} .wide{grid-column:auto} .hours-result{align-items:start;flex-direction:column} .section-head{gap:10px} .hero-actions .btn{width:100%} }
+    .done-dialog { width:min(520px, calc(100% - 32px)); border:4px solid var(--ink); border-radius:32px 18px 32px 18px; box-shadow:10px 10px 0 var(--ink); background:var(--paper); color:var(--ink); padding:30px; }
+    .done-dialog::backdrop { background:rgba(45,27,0,.55); }
+    .done-art { width:110px; height:110px; display:block; margin:0 0 14px; transform:rotate(-8deg); }
+    .done-title { font-size:var(--fs-title); line-height:1.15; margin:0 0 8px; }
+    .done-dialog p { margin:0 0 18px; line-height:1.55; }
+    .print-only { display:none; }
+
+    @media(max-width:1000px){ :root{--fs-title:22px} .hero-art{transform:scale(.91);transform-origin:center;} .hero-grid{gap:5px;} }
+    @media(max-width:760px){
+      .shell{width:min(100% - 32px,1180px)} .top-inner{min-height:66px} .nav-links{display:none} .progress-track{width:58px} .logo-mark{width:38px;height:38px}
+      .hero{padding:54px 0 61px;} .hero-grid{grid-template-columns:1fr;} .hero-art{min-height:355px;transform:scale(.8);margin:-28px -20px -32px;transform-origin:center}
+      .section{padding:53px 0}
+      .skill-grid{grid-template-columns:1fr;gap:12px}
+      .skill-card,.skill-card:nth-child(n+5){grid-column:auto;min-height:0;padding:14px 16px;grid-template-columns:auto 1fr auto;grid-template-rows:auto;grid-template-areas:"num text sym" "num foot foot";column-gap:14px;align-items:center}
+      .card-text{margin-top:0} .skill-card strong{margin-bottom:3px} .card-symbol .icon{width:26px;height:26px} .card-foot{padding-top:0;min-height:0} .mini-arrow{display:none} .skill-card.tried .card-foot{padding-top:6px}
+      .guardrail{padding:14px 16px}
+      .detail-wrap{padding:57px 0} .detail-card{padding:23px} .detail-heading{gap:11px} .detail-columns{grid-template-columns:1fr} .prompt-box{position:static} .detail-sticker{right:4px;top:-43px}
+      .big-num{flex-basis:55px;height:55px;width:55px}
+      .skill-pager{flex-direction:column} .pager-link{max-width:none} .pager-link.next{margin-left:0}
+      .practice-section{padding:53px 0 68px} .lab-top,.lab-body{padding:20px} .lab-chip{width:36px;height:36px}
+      .model-facts{grid-template-columns:1fr;gap:12px}
+      .html-lab{grid-template-columns:1fr} .banner-inner{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){
+      .hero-art{min-height:290px;transform:scale(.67);margin:-44px -45px -70px}
+      .field-grid,.checks,.estimate-grid{grid-template-columns:1fr} .wide{grid-column:auto}
+      .hours-result{align-items:start;flex-direction:column} .section-head{gap:10px} .hero-actions .btn{width:100%}
+      .lab-chips{gap:6px} .lab-chip{width:34px;height:34px}
+    }
     @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *,*:before,*:after{transition:none!important;animation:none!important} }
-    @media print { .topbar,.hero-art,.hero-actions,.practice-section,.bottom-banner,.toast,.detail-actions{display:none!important} .hero{padding:20px 0} .section{padding:20px 0} .detail-wrap{padding:20px 0} .skill-card,.detail-card{box-shadow:none} }
+
+    /* Printing: the page prints as a one-sheet guide to all seven skills, or as the completion badge. */
+    @media print {
+      :root { --fs-small:10pt; --fs-body:11pt; --fs-title:14pt; --fs-display:26pt; }
+      @page { margin:14mm; }
+      body { background:#fff; color:#000; }
+      body > :not(.print-only) { display:none !important; }
+      #cheatSheet { display:block; }
+      body[data-print="badge"] #cheatSheet { display:none; }
+      body[data-print="badge"] #badgeSheet { display:block; }
+      .cheat-sheet h1 { font-size:var(--fs-display); margin:0 0 2pt; }
+      .sheet-sub { font-size:var(--fs-small); margin:0 0 8pt; }
+      .sheet-guard { border:1.5pt solid #000; border-radius:6pt; padding:5pt 8pt; margin:0 0 12pt; font-size:var(--fs-small); }
+      .sheet-list { list-style:none; margin:0; padding:0; columns:2; column-gap:18pt; }
+      .sheet-list li { break-inside:avoid; margin:0 0 11pt; }
+      .sheet-list h2 { font-size:var(--fs-title); line-height:1.2; margin:0 0 3pt; }
+      .sheet-list p { margin:0 0 3pt; font-size:var(--fs-small); line-height:1.35; }
+      .sheet-prompt { border-left:3pt solid #c2500f; padding-left:6pt; }
+      .badge-sheet { text-align:center; padding-top:18mm; }
+      .badge-sheet svg { width:62mm; height:62mm; }
+      .badge-kicker { font:var(--fs-title) 'Righteous',sans-serif; letter-spacing:.12em; margin:8mm 0 2mm; }
+      .badge-sheet h1 { font-size:var(--fs-display); margin:0 0 4mm; }
+      .badge-name { font:var(--fs-title) 'Righteous',sans-serif; margin:0 0 3mm; }
+      .badge-sheet p { font-size:var(--fs-body); margin:0 0 4mm; }
+      .badge-skills { list-style:none; margin:4mm auto 8mm; padding:0; display:inline-grid; grid-template-columns:1fr 1fr; gap:3mm 12mm; text-align:left; font-size:var(--fs-body); }
+      .badge-skills li::before { content:'\2713  '; font-weight:800; }
+      .badge-date { font-size:var(--fs-small) !important; }
+    }
   </style>
 </head>
 <body>
@@ -145,7 +269,7 @@
     <div class="shell top-inner">
       <a class="brand" href="#top" aria-label="The AI Seven home"><span class="logo-mark" aria-hidden="true">7</span><span>THE AI SEVEN<span style="color:var(--orange-deep)">.</span></span></a>
       <nav class="nav-links" aria-label="Main navigation"><a href="#skills">The seven skills</a><a href="#practice">Try a mini lab</a><a href="#resources">Resources</a></nav>
-      <div class="progress-mini" aria-live="polite"><span id="progressText">0 / 7 tried</span><span class="progress-track" aria-hidden="true"><span id="progressFill" class="progress-fill"></span></span></div>
+      <div class="progress-mini"><span id="progressText">0 / 7 tried</span><span class="progress-track" aria-hidden="true"><span id="progressFill" class="progress-fill"></span></span></div>
     </div>
   </header>
   <main id="top">
@@ -160,8 +284,9 @@
         <div class="hero-art" role="img" aria-label="Retro illustration of a large orange seven on a record with playful sun and star shapes">
           <div class="art-back"></div>
           <svg class="sunburst" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 4 74 25 100 17 95 45 118 60 95 74 100 103 74 94 60 118 46 94 20 103 24 74 2 60 24 45 20 17 46 25Z" fill="#d4a017" stroke="#2d1b00" stroke-width="4"/><circle cx="60" cy="60" r="20" fill="#fdf6e3" stroke="#2d1b00" stroke-width="4"/></svg>
-          <div class="main-disc"><div class="disc-ring"><span>7</span></div></div>
-          <div class="orbit-star" aria-hidden="true">&#10022;</div><div class="art-dot"></div>
+          <div class="main-disc"><div class="disc-ring"><svg class="disc-seven" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M28 20h44L44 82" stroke="#2d1b00" transform="translate(4 4)"/><path d="M28 20h44L44 82" stroke="#fdf6e3"/></g></svg></div></div>
+          <svg class="orbit-star" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 3c2.6 15.5 10 23.4 26 27-16 3.6-23.4 11.5-26 27-2.6-15.5-10-23.4-26-27 16-3.6 23.4-11.5 26-27Z" fill="#6b7c35" stroke="#2d1b00" stroke-width="3" stroke-linejoin="round"/></svg>
+          <div class="art-dot"></div>
           <div class="art-label">TRY.<br>TWEAK.<br>REPEAT.</div>
         </div>
       </div>
@@ -169,141 +294,719 @@
     </section>
     <section id="skills" class="section" style="background:var(--paper)" aria-labelledby="skills-title">
       <div class="shell">
-        <div class="section-head"><div><h2 id="skills-title">Pick your next superpower.</h2></div><p class="section-intro">Click a card to see the idea, a campus example, and a prompt you can copy. Mark a skill as tried as you go.</p></div>
+        <div class="section-head"><div><h2 id="skills-title">Pick your next superpower.</h2></div><p class="section-intro">Click a card to see the idea, a campus example, and a prompt you can fill in and copy. Mark a skill as tried as you go.</p></div>
         <div class="skill-grid" id="skillGrid" role="group" aria-label="Choose one of seven AI skills"></div>
+        <aside class="guardrail" aria-label="Privacy reminder">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+          <p id="guardText"><b>Before you paste anything:</b> leave out student names, ID numbers, grades, and anything else FERPA protects. Stick to your campus-approved AI tools, and check every answer before you use it.</p>
+        </aside>
       </div>
     </section>
     <section class="detail-wrap" id="learn" aria-labelledby="detailTitle">
       <div class="shell detail-shell">
         <span class="detail-sticker" aria-hidden="true">YOU GOT THIS!</span>
         <article class="detail-card" id="detailCard" tabindex="-1">
-          <div class="detail-heading"><div class="big-num" id="detailNum">01</div><div><h3 id="detailTitle">Choose the right model</h3><p id="detailTagline">Match the tool to the task.</p></div></div>
+          <div class="detail-heading"><div class="big-num" id="detailNum">01</div><div><h3 id="detailTitle">Choose the right AI model</h3><p id="detailTagline">Pick for the work in front of you.</p></div></div>
           <div class="detail-columns">
-            <div class="detail-copy"><div class="micro">What it means</div><p id="detailDefinition"></p><div class="example-box"><div class="micro">Example at work</div><p id="detailExample"></p></div><p class="one-move" id="detailAction"></p></div>
-            <div class="prompt-box"><div class="micro">Copy-and-try prompt</div><pre id="detailPrompt"></pre><button type="button" class="btn mustard" id="copyPrompt">Copy this prompt <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button></div>
+            <div class="detail-copy">
+              <div class="micro">What it means</div><p id="detailDefinition"></p>
+              <div id="detailGuide" hidden><div class="micro" id="detailGuideTitle"></div><ol class="guide-list" id="detailGuideList"></ol></div>
+              <div class="example-box"><div class="micro">Example at work</div><p id="detailExample"></p></div>
+              <div class="note"><div class="micro">Tiny move</div><p id="detailAction"></p></div>
+              <div class="note"><div class="micro">Watch out</div><p id="detailMistake"></p></div>
+            </div>
+            <div class="prompt-box">
+              <div class="micro">Copy-and-try prompt</div>
+              <div class="prompt-text" id="detailPrompt"></div>
+              <p class="prompt-hint" id="promptHint">Fill in the blanks, then copy. What you type stays in this tab and is never saved.</p>
+              <button type="button" class="btn mustard" id="copyPrompt">Copy this prompt <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button>
+            </div>
           </div>
-          <div class="detail-actions"><span class="action-tip">Make it real. Try one prompt, then mark this skill.</span><button class="btn olive" type="button" id="markTried" aria-pressed="false">Mark as tried</button></div>
+          <div class="detail-actions">
+            <span class="action-tip">Make it real. Try one prompt, then mark this skill.</span>
+            <div class="detail-buttons">
+              <button type="button" class="btn" id="copyLink">Copy link to this skill <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></button>
+              <button class="btn olive" type="button" id="markTried" aria-pressed="false">Mark as tried</button>
+            </div>
+          </div>
         </article>
+        <nav class="skill-pager" aria-label="Previous and next skill">
+          <a class="pager-link prev" id="prevSkill" href="#skill-1"><span class="pager-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Previous skill</span><span class="pager-title" id="prevTitle"></span></a>
+          <a class="pager-link next" id="nextSkill" href="#skill-2"><span class="pager-dir"><span id="nextDir">Next skill</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="pager-title" id="nextTitle"></span></a>
+        </nav>
       </div>
     </section>
     <section id="practice" class="practice-section" aria-labelledby="practiceTitle">
-      <div class="shell"><div class="section-head"><div><h2 id="practiceTitle">The tiny practice lab.</h2></div><p class="section-intro">A small interactive activity changes with the skill you select above. Nothing here sends data to an AI service.</p></div>
-        <div class="lab-frame"><div class="lab-top"><strong id="labLabel">Model matcher</strong><span>Practice makes progress &#10022;</span></div><div id="labBody" class="lab-body"></div></div>
+      <div class="shell"><div class="section-head"><div><h2 id="practiceTitle">The tiny practice lab.</h2></div><p class="section-intro">Each skill has its own small activity. Switch labs with the numbers below. Nothing here sends data to an AI service.</p></div>
+        <div class="lab-frame">
+          <div class="lab-top"><strong id="labLabel">Model matcher</strong><div class="lab-chips" id="labChips" role="group" aria-label="Choose a lab"></div></div>
+          <div id="labBody" class="lab-body"></div>
+        </div>
       </div>
     </section>
-    <section class="bottom-banner"><div class="shell banner-inner"><div><h2>One small win is enough to start.</h2><p>Save a useful prompt, test one mini tool, or create a workflow you can reuse next week.</p></div><button type="button" class="btn mustard" id="copyCheat">Copy the 7-skill cheat sheet <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button></div></section>
+    <section class="bottom-banner" aria-labelledby="bannerTitle"><div class="shell banner-inner">
+      <div><h2 id="bannerTitle">One small win is enough to start.</h2><p>Save a useful prompt, test one mini tool, or create a workflow you can reuse next week.</p></div>
+      <div class="banner-actions">
+        <button type="button" class="btn mustard" id="copyCheat">Copy the 7-skill cheat sheet <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button>
+        <button type="button" class="btn" id="printCheat">Print the cheat sheet <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7Z"/></svg></button>
+        <button type="button" class="btn olive" id="printBadge" hidden>Print my badge <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></button>
+      </div>
+    </div></section>
   </main>
   <footer class="footer" id="resources"><div class="shell footer-inner"><div>Made for curious coworkers. Examples updated October 2026.<br><span style="opacity:.75">Always check AI outputs and institutional policies, especially when handling private information.</span></div><div class="footer-links"><a href="https://help.boodlebox.ai/article/skills" target="_blank" rel="noopener noreferrer">BoodleBox Skills guide</a><a href="https://help.boodlebox.ai/article/choose-a-model" target="_blank" rel="noopener noreferrer">Model selection</a><a href="https://platform.claude.com/docs/en/models/overview" target="_blank" rel="noopener noreferrer">Claude models</a><a href="https://openai.com/index/gpt-6-for-everyone/" target="_blank" rel="noopener noreferrer">GPT-6</a><a href="https://github.com/chrismccoy/claude-design-styles/blob/master/spec/groovy.md" target="_blank" rel="noopener noreferrer">Groovy design inspiration</a></div></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite">Copied!</div>
+
+  <dialog class="done-dialog" id="doneDialog" aria-labelledby="doneTitle">
+    <svg class="done-art" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="92" fill="#e8621a" stroke="#2d1b00" stroke-width="8"/><circle cx="100" cy="100" r="66" fill="none" stroke="#d4a017" stroke-width="10"/><circle cx="100" cy="100" r="58" fill="none" stroke="#2d1b00" stroke-width="5"/><g fill="none" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M75 66h52l-32 72" stroke="#2d1b00" transform="translate(5 5)"/><path d="M75 66h52l-32 72" stroke="#fdf6e3"/></g></svg>
+    <h2 class="done-title" id="doneTitle">All seven, tried.</h2>
+    <p>You explored every skill on the list. Print a badge for your office door, or keep going with the mini labs.</p>
+    <label class="field"><span>Name on your badge (optional)</span><input id="badgeName" autocomplete="name"></label>
+    <div class="actions-row"><button type="button" class="btn orange" id="printBadgeDialog">Print my badge</button><button type="button" class="btn" id="closeDone">Close</button></div>
+  </dialog>
+
+  <section class="print-only cheat-sheet" id="cheatSheet" aria-hidden="true">
+    <h1>The AI Seven</h1>
+    <p class="sheet-sub">A practical field guide to seven everyday AI skills &middot; wangy113.github.io/the-ai-seven</p>
+    <p class="sheet-guard" id="sheetGuard"></p>
+    <ol class="sheet-list" id="cheatList"></ol>
+  </section>
+  <section class="print-only badge-sheet" id="badgeSheet" aria-hidden="true">
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="#e8621a" stroke="#2d1b00" stroke-width="8"/><circle cx="100" cy="100" r="66" fill="none" stroke="#d4a017" stroke-width="10"/><circle cx="100" cy="100" r="58" fill="none" stroke="#2d1b00" stroke-width="5"/><g fill="none" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M75 66h52l-32 72" stroke="#2d1b00" transform="translate(5 5)"/><path d="M75 66h52l-32 72" stroke="#fdf6e3"/></g></svg>
+    <p class="badge-kicker">THE AI SEVEN</p>
+    <h1>All seven, tried.</h1>
+    <p class="badge-name" id="badgeWho"></p>
+    <p>explored and tried seven everyday AI skills:</p>
+    <ul class="badge-skills" id="badgeSkills"></ul>
+    <p class="badge-date" id="badgeDate"></p>
+  </section>
+
 <script>
-(function(){
+(function () {
   'use strict';
+
+  // Model names change often. Update them here and every mention on the page follows.
+  // Picks follow BoodleBox's "Choose a model" guide and Anthropic's models overview (October 2026).
+  const MODELS = {
+    router: 'BoodleBot',
+    quick: 'Claude Haiku 5.5 or Gemini Flash',
+    writing: 'Claude Sonnet 5.5 or ChatGPT',
+    deep: 'Claude Opus 5.5 or GPT-6',
+    code: 'Claude Sonnet 5.5 or GPT-6',
+    codeDeep: 'Claude Opus 5.5',
+    long: 'Gemini',
+    huge: 'Llama',
+    web: 'Perplexity',
+    scholarly: 'Semantic Scholar',
+    images: 'Nano Banana Pro',
+    photo: 'FLUX',
+    charts: 'Seedream'
+  };
+
+  // Prompt text in [brackets] becomes a fill-in blank. Brackets starting with "paste" stay as-is,
+  // because that material goes straight into the AI chat, not into this page.
   const skills = [
     {
-      title:'Choose the right AI model',short:'Match model to task',icon:'<path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/>',tagline:'Pick for the work in front of you.',
-      definition:'Different AI models have different strengths, speeds, and access requirements. Start with one that fits the task, then switch or compare when you need a stronger answer.',
-      example:'Use GPT-6 for drafting a thoughtful faculty announcement or synthesizing ideas. Try Claude Opus 5.5 for a tricky coding task. For a simple summary, a faster model may be plenty.',
-      action:'Tiny move: Try the same question in two models and compare clarity, accuracy, and usefulness.',
-      prompt:'I need help with [task]. I have access to [models]. Which model should I try first, and why? Suggest a faster option and a deeper option. Tell me how to check the result.'
+      title: 'Choose the right AI model', short: 'Match model to task', tagline: 'Pick for the work in front of you.',
+      icon: '<path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/>',
+      definition: 'Each AI model trades speed for depth in its own way. Some answer in seconds, some take longer to reason through hard problems, some can read a whole handbook at once, and some search the web or make images. Match the model to the job, start in the middle, and step up only when the answer falls short.',
+      guide: {
+        title: 'Four questions to ask',
+        items: [
+          ['How hard is the thinking?', `Routine replies need a fast model. Multi-step analysis or a decision with tradeoffs calls for a deeper one, such as ${MODELS.deep}.`],
+          ['How much are you giving it?', `For a long report, transcript, or handbook, use a long-context model such as ${MODELS.long}, and ask for section references.`],
+          ['Does it need current or cited sources?', `Use ${MODELS.web} for the web or ${MODELS.scholarly} for journals, then open every citation.`],
+          ['How private is it?', 'Use only your campus-approved tools, and keep student records out of every chat.']
+        ]
+      },
+      example: `Drafting a faculty announcement? ${MODELS.writing} is plenty. Comparing three advising policies? Step up to ${MODELS.deep}. Summarizing a 90-page accreditation report? Try ${MODELS.long} and ask for page numbers.`,
+      action: `In BoodleBox, type @ to bring two models into the same chat, ask the same question, and compare clarity, accuracy, and usefulness. Not sure where to start? Send it to ${MODELS.router}, which picks a model for you.`,
+      mistake: 'Always reaching for the biggest model. It is slower and not automatically better; a mid-tier model often does the job.',
+      prompt: 'I need help with [task]. I will be working with [what material, and how long]. I can use [models I have access to]. Which model should I try first, and why? Does this task need current or cited sources? Suggest a faster option and a deeper option, and tell me how to check the result.'
     },
     {
-      title:'Improve prompts with AI',short:'Ask AI to refine your ask',icon:'<path d="M11 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/><path d="M19 16v5M16.5 18.5h5"/>',tagline:'Let AI help you ask a better question.',
-      definition:'Before asking for the finished product, ask AI to improve the request. A stronger prompt makes the audience, goal, constraints, and desired output much clearer.',
-      example:'Instead of “Write an email to students,” first ask AI to improve your prompt for a warm, concise course announcement that includes the deadline and next step.',
-      action:'Tiny move: Ask for a better prompt, review it, and then run the revised version.',
-      prompt:'Before doing this task, improve my prompt. Identify what is vague, suggest any essential missing details, and rewrite it as a clear instruction. Then wait for my approval. My original request: [paste request].'
+      title: 'Improve prompts with AI', short: 'Ask AI to refine your ask', tagline: 'Let AI help you ask a better question.',
+      icon: '<path d="M11 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7Z"/><path d="M19 16v5M16.5 18.5h5"/>',
+      definition: 'Before asking for the finished product, ask AI to improve the request. A stronger prompt makes the audience, goal, constraints, and desired output much clearer.',
+      example: 'Instead of “Write an email to students,” first ask AI to improve your prompt for a warm, concise course announcement that includes the deadline and next step.',
+      action: 'Ask for a better prompt, review it, and then run the revised version.',
+      mistake: 'Running the improved prompt without reading it. The rewrite can add assumptions you never intended.',
+      prompt: 'Before doing this task, improve my prompt. Identify what is vague, suggest any essential missing details, and rewrite it as a clear instruction. Then wait for my approval. My original request: [paste request].'
     },
     {
-      title:'Give context and reference files',short:'Bring the right materials',icon:'<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9.5 12h5M9.5 16h5"/>',tagline:'Good source material improves the answer.',
-      definition:'Provide the AI with the actual documents, background, audience, and rules it needs. Explain which sources it should use and what to do when information is missing.',
-      example:'Attach the assignment instructions and grading rubric. Ask AI to draft feedback that follows the rubric and points to specific criteria rather than guessing what the assignment requires.',
-      action:'Tiny move: Attach one relevant file and tell AI exactly how to use it. Remove or protect sensitive student information.',
-      prompt:'Use the attached [rubric / syllabus / document] as the primary reference. My goal is [goal] for [audience]. Follow these constraints: [constraints]. Point to the relevant section where possible, and flag anything the source does not establish.'
+      title: 'Give context and reference files', short: 'Bring the right materials', tagline: 'Good source material improves the answer.',
+      icon: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4M9.5 12h5M9.5 16h5"/>',
+      definition: 'Provide the AI with the actual documents, background, audience, and rules it needs. Explain which sources it should use and what to do when information is missing.',
+      example: 'Attach the assignment instructions and grading rubric. Ask AI to draft feedback that follows the rubric and points to specific criteria rather than guessing what the assignment requires.',
+      action: 'Attach one relevant file and tell AI exactly how to use it. Remove or protect sensitive student information.',
+      mistake: 'Uploading everything “just in case.” Extra files blur the answer and can expose private information.',
+      prompt: 'Use the attached [rubric / syllabus / document] as the primary reference. My goal is [goal] for [audience]. Follow these constraints: [constraints]. Point to the relevant section where possible, and flag anything the source does not establish.'
     },
     {
-      title:'Work through unfamiliar problems',short:'Troubleshoot in small steps',icon:'<circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><path d="M7.5 18.5H14a3.25 3.25 0 0 0 0-6.5h-4a3.25 3.25 0 0 1 0-6.5h6.5"/>',tagline:'Make the unknown manageable.',
-      definition:'Treat AI like a patient problem-solving partner. Describe the situation, ask for small diagnostic steps, test one change at a time, and share what happened before moving on.',
-      example:'An unfamiliar LMS setting stops working. Ask AI for the three likely causes and the safest first check. Test it, report the result, and continue from there.',
-      action:'Tiny move: Ask for one safe next step instead of a long list of possible fixes.',
-      prompt:'I am new to [tool or problem]. Here is what I expected: [expected]. Here is what happened: [actual]. Guide me one small step at a time. Start with the safest diagnostic check, explain why it matters, and wait for my result.'
+      title: 'Work through unfamiliar problems', short: 'Troubleshoot in small steps', tagline: 'Make the unknown manageable.',
+      icon: '<circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><path d="M7.5 18.5H14a3.25 3.25 0 0 0 0-6.5h-4a3.25 3.25 0 0 1 0-6.5h6.5"/>',
+      definition: 'Treat AI like a patient problem-solving partner. Describe the situation, ask for small diagnostic steps, test one change at a time, and share what happened before moving on.',
+      example: 'An unfamiliar LMS setting stops working. Ask AI for the three likely causes and the safest first check. Test it, report the result, and continue from there.',
+      action: 'Ask for one safe next step instead of a long list of possible fixes.',
+      mistake: 'Trying five suggested fixes at once. If something changes, you cannot tell which fix worked, or what broke.',
+      prompt: 'I am new to [tool or problem]. Here is what I expected: [expected]. Here is what happened: [actual]. Guide me one small step at a time. Start with the safest diagnostic check, explain why it matters, and wait for my result.'
     },
     {
-      title:'Save repeatable work as a Skill',short:'Turn a routine into a Skill',icon:'<path d="M6 3h12v18l-6-4-6 4Z"/><path d="M12 7.5v5M9.5 10h5"/>',tagline:'Stop retyping instructions.',
-      definition:'A Skill is a saved set of instructions for a task you do repeatedly. In BoodleBox, you can create one in Banks > Skills > Create skill, then choose Write or upload a SKILL.md file.',
-      example:'Build a “Course Announcement Reviewer” Skill that checks every announcement for clarity, friendly tone, deadline, student action, and an accessible format.',
-      action:'Tiny move: In BoodleBox, open Banks > Skills > Create skill, then Write or Upload. You can also type / and select the built-in skill-creator to help draft a SKILL.md file.',
-      prompt:'Help me draft a reusable BoodleBox Skill called Course Announcement Reviewer. Include a name, one-sentence description, reusable instructions, required inputs, a review checklist, and a consistent output format. Ask me about any missing rules before finalizing.'
+      title: 'Save repeatable work as a Skill', short: 'Turn a routine into a Skill', tagline: 'Stop retyping instructions.',
+      icon: '<path d="M6 3h12v18l-6-4-6 4Z"/><path d="M12 7.5v5M9.5 10h5"/>',
+      definition: 'A Skill is a saved set of instructions for a task you do repeatedly. In BoodleBox, you can create one in Banks > Skills > Create skill, then choose Write or upload a SKILL.md file.',
+      example: 'Build a “Course Announcement Reviewer” Skill that checks every announcement for clarity, friendly tone, deadline, student action, and an accessible format.',
+      action: 'In BoodleBox, open Banks > Skills > Create skill, then Write or Upload. You can also type / and select the built-in skill-creator to help draft a SKILL.md file.',
+      mistake: 'Building one Skill that tries to do everything. One job per Skill keeps the results consistent.',
+      prompt: 'Help me draft a reusable BoodleBox Skill called [skill name] that [what it does each time]. Include a name, one-sentence description, reusable instructions, required inputs, a review checklist, and a consistent output format. Ask me about any missing rules before finalizing.'
     },
     {
-      title:'Use AI to fix simple HTML',short:'Repair Canvas HTML faster',icon:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',tagline:'Find the invisible little errors.',
-      definition:'Paste the HTML from the Canvas LMS HTML editor, explain what looks wrong, and ask AI to identify the smallest safe fix. Have it show which lines changed and why.',
-      example:'There is an empty hyperlink you cannot find, or a heading refuses to center. AI can spot href="" or suggest text-align:center in the right place.',
-      action:'Tiny move: Make a copy of the original HTML, test the change in Canvas preview, and check desktop and mobile layouts.',
-      prompt:'Here is HTML from the Canvas LMS editor: [paste code]. The problem is [empty link / heading not centered]. Find the cause, make the smallest possible fix, show before-and-after snippets, and tell me exactly what to replace. Avoid extra libraries.'
+      title: 'Use AI to fix simple HTML', short: 'Repair Canvas HTML faster', tagline: 'Find the invisible little errors.',
+      icon: '<path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
+      definition: 'Paste the HTML from the Canvas LMS HTML editor, explain what looks wrong, and ask AI to identify the smallest safe fix. Have it show which lines changed and why.',
+      example: 'An announcement pasted from Word turns everything below it into a giant heading, the title will not center, and a link goes nowhere. AI can spot the unclosed <h3>, the misspelled “centre,” and the empty href="" in seconds.',
+      action: 'Make a copy of the original HTML, test the change in Canvas preview, and check desktop and mobile layouts.',
+      mistake: 'Pasting the whole AI rewrite over your page. Replace only the lines that changed, and keep the original.',
+      prompt: 'Here is HTML from the Canvas LMS editor: [paste code]. The problem is [what looks wrong]. Find the cause, make the smallest possible fix, show before-and-after snippets, and tell me exactly what to replace. Avoid extra libraries.'
     },
     {
-      title:'Build small productivity tools',short:'Make tiny useful apps',icon:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',tagline:'Turn an idea into something clickable.',
-      definition:'Ask AI to make a simple, single-page tool that solves one specific problem. Start with a basic calculator, test it with known numbers, and improve the interface through small revisions.',
-      example:'Create a course contact-hour estimator using meetings per week, minutes per meeting, and number of weeks. Add clear labels and a live total.',
-      action:'Tiny move: Build one simple calculator first; verify the math before using it in real work.',
-      prompt:'Build a single-file HTML, CSS, and JavaScript calculator for course contact hours. Inputs: meetings per week, minutes per meeting, and number of weeks. Output: total scheduled contact hours. Make it responsive and accessible. No external libraries. Explain how to test it; do not claim it determines official credit hours.'
+      title: 'Build small productivity tools', short: 'Make tiny useful apps', tagline: 'Turn an idea into something clickable.',
+      icon: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
+      definition: 'Ask AI to make a simple, single-page tool that solves one specific problem. Start with a basic calculator, test it with known numbers, and improve the interface through small revisions.',
+      example: 'Create a course contact-hour estimator using meetings per week, minutes per meeting, and number of weeks. Add clear labels and a live total.',
+      action: 'Build one simple calculator first; verify the math before using it in real work.',
+      mistake: 'Trusting a tool before testing it. Check the math with numbers you already know the answer to.',
+      prompt: 'Build a single-file HTML, CSS, and JavaScript calculator for course contact hours. Inputs: meetings per week, minutes per meeting, and number of weeks. Output: total scheduled contact hours. Make it responsive and accessible. No external libraries. Explain how to test it; do not claim it determines official credit hours.'
     }
   ];
-  const $=id=>document.getElementById(id);
-  const safe=str=>String(str).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  let current=0;
-  let practiced=[];
-  try { const raw=JSON.parse(localStorage.getItem('ai-seven-tried-v1')||'[]'); practiced=Array.isArray(raw)?raw.filter(n=>Number.isInteger(n)&&n>=0&&n<7):[]; } catch(e) { practiced=[]; }
+
+  const MODEL_TASKS = [
+    {
+      label: 'Quick everyday answer', start: MODELS.quick,
+      why: 'Light, fast models handle short replies, simple rewrites, and quick lookups in seconds. BoodleBox lists them among its free models.',
+      watch: 'Speed can cost nuance. Reread the tone before you send anything.',
+      check: 'Does it say what you meant, in your voice?'
+    },
+    {
+      label: 'Writing and drafting', start: MODELS.writing,
+      why: 'Natural, polished writing at a good speed. A sensible middle tier for announcements, emails, and newsletters.',
+      watch: 'Generic phrasing. Give it your audience, your purpose, and a sample of your own writing.',
+      check: 'Are the names, dates, and deadlines right?'
+    },
+    {
+      label: 'Hard reasoning', start: MODELS.deep,
+      why: 'Deeper models work through multi-step problems such as comparing policies, interpreting data, or weighing tradeoffs.',
+      watch: 'They are slower, and they can still be confidently wrong. Ask them to list their assumptions.',
+      check: 'Verify the key claims with a trusted source or a colleague.'
+    },
+    {
+      label: 'Long documents', start: `${MODELS.long}, or ${MODELS.huge} for very large files`,
+      why: 'Long-context models can read a full handbook, report, or transcript in one go.',
+      watch: 'A summary can skip what matters to you. Say exactly what to look for.',
+      check: 'Ask for page or section references, then spot-check two of them.'
+    },
+    {
+      label: 'Research with sources', start: `${MODELS.web} for the web, ${MODELS.scholarly} for journals`,
+      why: 'These tools search as they answer and cite what they found, so you can trace each claim back to its source.',
+      watch: 'Citations can still be misread or point to the wrong page.',
+      check: 'Open every source you plan to quote or share.'
+    },
+    {
+      label: 'Code or Canvas HTML', start: MODELS.code,
+      why: `Both read and write code well. Step up to ${MODELS.codeDeep} for a stubborn bug that spans several files.`,
+      watch: 'Fixes that change more than they need to.',
+      check: 'Test in Canvas preview or Student View before you publish.'
+    },
+    {
+      label: 'Make an image', start: `${MODELS.images}, or ${MODELS.photo} for photo-real`,
+      why: `Image models are built to draw. For charts and data visuals, try ${MODELS.charts}.`,
+      watch: 'Garbled words inside the image, and lookalikes of real people.',
+      check: 'Add alt text, and follow your campus brand and copyright rules.'
+    }
+  ];
+
+  // Each line is [code, issue numbers]. Issue numbers tie the highlighted line to the list below the preview.
+  const HTML_FIX = {
+    before: {
+      title: 'What’s wrong',
+      lines: [
+        ['<div class="card">'],
+        ['  <h3 style="text-align: centre">Weekly update<h3>', [1, 2]],
+        ['  <p><font face="Calibri" size="2"><b>Quiz 3 opens Monday.</font></p>', [3]],
+        ['  <img src="week5-banner.png">', [4]],
+        ['  <p>See the <a href="">course resources</a> before class.</p>', [5]],
+        ['</div>']
+      ],
+      notes: [
+        'The heading is never closed. The second <code>&lt;h3&gt;</code> should be <code>&lt;/h3&gt;</code>, so everything below it turns into one giant heading.',
+        '<code>centre</code> is not a CSS value. CSS only understands <code>center</code>, so the heading will not center.',
+        '<code>&lt;font&gt;</code> is an outdated tag that Canvas strips out, and the <code>&lt;b&gt;</code> inside it is never closed.',
+        'The image has no <code>alt</code> text, so screen reader users miss it and the Canvas accessibility checker flags it.',
+        'The link’s <code>href=""</code> is empty, so it goes nowhere.'
+      ]
+    },
+    after: {
+      title: 'What changed',
+      lines: [
+        ['<div class="card">'],
+        ['  <h3 style="text-align: center">Weekly update</h3>', [1, 2]],
+        ['  <p><strong>Quiz 3 opens Monday.</strong></p>', [3]],
+        ['  <img src="week5-banner.png" alt="Week 5: Research methods">', [4]],
+        ['  <p>See the <a href="/courses/123/pages/resources">course resources</a> before class.</p>', [5]],
+        ['</div>']
+      ],
+      notes: [
+        '<code>&lt;/h3&gt;</code> closes the heading, so the text below goes back to normal size.',
+        '<code>center</code> is spelled the way CSS expects.',
+        '<code>&lt;strong&gt;</code> replaces <code>&lt;font&gt;</code> and <code>&lt;b&gt;</code>, and it is closed.',
+        'The <code>alt</code> text describes the image for screen reader users.',
+        'The link points to a real page. Swap in your own Canvas page URL.'
+      ]
+    }
+  };
+  const BANNER_SRC = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="320" height="64" viewBox="0 0 320 64"><rect width="320" height="64" rx="10" fill="#6b7c35"/><text x="160" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">Week 5: Research methods</text></svg>');
+
+  const STORAGE_KEY = 'ai-seven-tried-v1';
+  const $ = id => document.getElementById(id);
+  const safe = str => String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const pad = i => String(i + 1).padStart(2, '0');
+  const svg = paths => `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`;
+  const ICON_CHECK = svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>');
+  const ICON_ARROW = svg('<path d="M5 12h14M13 6l6 6-6 6"/>');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  let current = 0;
+  let practiced = [];
+  try {
+    const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    practiced = Array.isArray(raw) ? raw.filter(n => Number.isInteger(n) && n >= 0 && n < skills.length) : [];
+  } catch (e) { practiced = []; }
+  // What people type into prompt blanks lives only in memory, so nothing private is stored.
+  const blanks = skills.map(() => ({}));
+
+  // ---- Feedback helpers ----
   let toastTimer;
-  function toast(msg){ const el=$('toast'); el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2000); }
-  async function copy(text){ try { if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);}else{const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();if(!ok)throw new Error('copy unavailable');}toast('Copied to clipboard');}catch(e){toast('Select and copy the text manually');} }
-  function updateProgress(){ $('progressText').textContent=practiced.length+' / 7 tried';$('progressFill').style.width=(practiced.length/7*100)+'%';try{localStorage.setItem('ai-seven-tried-v1',JSON.stringify(practiced));}catch(e){} }
-  const svg=paths=>`<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`;
-  const ICON_CHECK=svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),ICON_ARROW=svg('<path d="M5 12h14M13 6l6 6-6 6"/>');
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-  function renderCards(){ $('skillGrid').innerHTML=skills.map((s,i)=>`<button type="button" class="skill-card" data-skill="${i}"><span class="num">0${i+1}</span><span class="card-symbol">${svg(s.icon)}</span><span class="card-text"><strong>${safe(s.title)}</strong><small>${safe(s.short)}</small></span><span class="card-foot"><span class="tried-tag">${ICON_CHECK}Tried</span><span class="mini-arrow">${ICON_ARROW}</span></span></button>`).join('');
-    $('skillGrid').querySelectorAll('[data-skill]').forEach(b=>b.addEventListener('click',()=>{selectSkill(Number(b.dataset.skill),true);}));
-    updateCards();
+  function toast(msg) {
+    const el = $('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
   }
-  function updateCards(){ $('skillGrid').querySelectorAll('[data-skill]').forEach(b=>{const i=Number(b.dataset.skill),tried=practiced.includes(i);b.classList.toggle('active',i===current);b.classList.toggle('tried',tried);b.setAttribute('aria-pressed',String(i===current));b.setAttribute('aria-label',`Skill ${i+1}: ${skills[i].title}${tried?', tried':''}`);}); }
-  function renderDetail(){const s=skills[current],tried=practiced.includes(current);$('detailNum').textContent=String(current+1).padStart(2,'0');$('detailTitle').textContent=s.title;$('detailTagline').textContent=s.tagline;$('detailDefinition').textContent=s.definition;$('detailExample').textContent=s.example;$('detailAction').textContent=s.action;$('detailPrompt').textContent=s.prompt;$('markTried').innerHTML=tried?ICON_CHECK+' Tried. Click to undo':'Mark as tried '+ICON_CHECK;$('markTried').setAttribute('aria-pressed',String(tried));}
-  function selectSkill(i,scroll){current=i;updateCards();renderDetail();renderLab();if(scroll){const card=$('detailCard');card.focus({preventScroll:true});card.scrollIntoView({behavior:reduceMotion.matches?'auto':'smooth',block:'start'});} }
-  function setLab(title,html){$('labLabel').textContent=title;$('labBody').innerHTML=html;}
-  function renderLab(){
-    if(current===0){
-      const tasks=[['quick','Everyday email'],['code','Debugging code'],['complex','Complex reasoning'],['large','Long source material']];
-      setLab('Model matcher',`<h4>What are you trying to do?</h4><p>Choose a task to see a sensible starting point. You can always compare models if the first result needs work.</p><div class="lab-control-row" id="taskPills">${tasks.map(([k,v],i)=>`<button class="lab-pill ${i===0?'selected':''}" type="button" data-task="${k}" aria-pressed="${i===0}">${v}</button>`).join('')}</div><div class="lab-result" id="modelResult" aria-live="polite"></div>`);
-      const result={quick:['Start light','A fast model is usually enough for routine messages or short summaries. Try ChatGPT or BoodleBox\'s suggested general-purpose model.'],code:['Try Claude Opus 5.5','For a difficult coding/debugging task, Claude Opus 5.5 is a good model to test. For a small edit, try a faster Claude model first.'],complex:['Try GPT-6 or a reasoning-focused model','Give the full question and context. Ask the model to state uncertainties, then verify the recommendation against trusted sources.'],large:['Choose a long-context model','Check that the model can accept the full material. Ask for specific quotations or section references so you can verify the summary.']};
-      function choose(k){$('taskPills').querySelectorAll('button').forEach(b=>{b.classList.toggle('selected',b.dataset.task===k);b.setAttribute('aria-pressed',String(b.dataset.task===k));});const [head,body]=result[k];$('modelResult').innerHTML=`<strong>${safe(head)}</strong><p>${safe(body)}</p>`;}
-      $('taskPills').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>choose(b.dataset.task)));choose('quick');
-    } else if(current===1){
-      setLab('Prompt upgrade station',`<h4>Make a vague request clearer.</h4><p>This simple template builder shows how adding purpose, audience, constraints, and format strengthens your request.</p><div class="field-grid"><label class="field"><span>What should AI do?</span><input id="pTask" value="Draft a course announcement"></label><label class="field"><span>Who is it for?</span><input id="pAudience" value="First-year online students"></label><label class="field"><span>Important details</span><input id="pDetails" value="Friendly tone; remind them of Friday deadline"></label><label class="field"><span>Output format</span><input id="pFormat" value="Under 130 words, with a clear next step"></label></div><div class="actions-row"><button class="btn orange" type="button" id="buildPrompt">Build improved prompt &rarr;</button><button class="btn" type="button" id="copyBuiltPrompt">Copy result</button></div><div class="output" id="builtPrompt" aria-live="polite"></div>`);
-      const build=()=>{const txt=`Task: ${$('pTask').value.trim()||'[describe task]'}\nAudience: ${$('pAudience').value.trim()||'[describe audience]'}\nImportant details: ${$('pDetails').value.trim()||'[include requirements]'}\nOutput: ${$('pFormat').value.trim()||'[specify format]'}\nIf key information is missing, flag it instead of making it up.`;$('builtPrompt').textContent=txt;}; $('buildPrompt').addEventListener('click',build);$('copyBuiltPrompt').addEventListener('click',()=>copy($('builtPrompt').textContent)); build();
-    } else if(current===2){
-      const opts=['Clear goal and audience','Relevant source file(s)','Output format or rubric','Privacy and accuracy checks'];
-      setLab('Context packing checklist',`<h4>What should you bring to the chat?</h4><p>Check each item as you prepare a request. Good context matters more than extra-long instructions.</p><div class="checks">${opts.map((o,i)=>`<label class="check"><input type="checkbox" class="context-check" ${i===0?'checked':''}><span>${o}</span></label>`).join('')}</div><div class="lab-result" id="contextResult" aria-live="polite"></div>`);
-      function status(){const n=$('labBody').querySelectorAll('.context-check:checked').length;$('contextResult').innerHTML=`<strong>${n} of 4 context checks ready</strong><p>${n===4?'Great. Attach the right materials, state the goal, and review the result before using it.':'Keep going. Include enough reliable context for AI to work with and protect private information.'}</p>`;} $('labBody').querySelectorAll('.context-check').forEach(c=>c.addEventListener('change',status));status();
-    } else if(current===3){
-      let step=0;const steps=[['Describe the gap','Write down what you expected and what actually happened. Include the exact error message if available.'],['Test one safe change','Ask AI for the smallest diagnostic test. Save the current settings so you can undo the change.'],['Verify and document','Check whether the fix worked. Report the result to AI and record the solution for next time.']];
-      setLab('Step-by-step troubleshooter',`<h4>One change at a time.</h4><p>Click through a low-risk troubleshooting routine that works for unfamiliar software and workflows.</p><div class="stepper" id="steps" aria-hidden="true"></div><div class="lab-result" id="stepContent" aria-live="polite"></div><div class="actions-row"><button class="btn" id="stepBack" type="button">&larr; Previous</button><button class="btn orange" id="stepNext" type="button">Next step &rarr;</button></div>`);
-      const paint=()=>{$('steps').innerHTML=steps.map((_,i)=>`<span class="step ${i===step?'current':i<step?'complete':''}">${i+1}</span>`).join('');$('stepContent').innerHTML=`<strong><span class="visually-hidden">Step ${step+1} of 3: </span>${steps[step][0]}</strong><p>${steps[step][1]}</p>`;$('stepBack').disabled=step===0;$('stepNext').textContent=step===2?'Start again':'Next step \u2192';};$('stepBack').addEventListener('click',()=>{step=Math.max(0,step-1);paint();});$('stepNext').addEventListener('click',()=>{step=step===2?0:step+1;paint();});paint();
-    } else if(current===4){
-      setLab('BoodleBox Skill builder',`<h4>Give a repeatable task a name.</h4><p>Turn the routine into a small draft you can review and save in BoodleBox.</p><div class="field-grid"><label class="field"><span>Skill name</span><input id="skillName" value="Course Announcement Reviewer"></label><label class="field"><span>What happens each time?</span><input id="skillJob" value="Review a course announcement for clarity"></label><label class="field wide"><span>Your rules</span><textarea id="skillRules">Check for clear deadline, next step, friendly tone, and accessibility.</textarea></label></div><div class="actions-row"><button class="btn orange" id="makeSkill" type="button">Draft my Skill &rarr;</button><button class="btn" id="copySkill" type="button">Copy draft</button></div><div class="output" id="skillDraft" aria-live="polite"></div><p class="small-note">In BoodleBox, go to Banks &gt; Skills &gt; Create skill. Choose Write or upload a SKILL.md file, then save. Type / in chat to call your Skill or choose the built-in skill-creator to draft one. Skills are personal as of October 2026.</p>`);
-      const create=()=>{$('skillDraft').textContent=`Name: ${$('skillName').value.trim()||'[Skill name]'}\nDescription: ${$('skillJob').value.trim()||'[repeatable job]'}\nInstructions:\n1. Ask for the source material and intended audience.\n2. ${$('skillRules').value.trim()||'[list your quality checks]'}\n3. Flag missing details rather than guessing.\n4. Return a concise reviewed version and a short list of suggested changes.\n5. Ask for human approval before any final use.`;};$('makeSkill').addEventListener('click',create);$('copySkill').addEventListener('click',()=>copy($('skillDraft').textContent));create();
-    } else if(current===5){
-      const broken=`<div class="card">\n  <h3>Weekly update</h3>\n  <a href="">Course resources</a>\n</div>`;
-      const fixed=`<div class="card" style="text-align:center">\n  <h3>Weekly update</h3>\n  <a href="/courses/123/pages/resources">Course resources</a>\n</div>`;
-      setLab('Canvas HTML repair shop',`<h4>Spot the tiny HTML fix.</h4><p>The example contains an empty link and a heading that is not centered. Toggle the repair to see what changed.</p><div class="lab-control-row"><button type="button" class="lab-pill selected" id="showBroken">Before</button><button type="button" class="lab-pill" id="showFixed">After the fix</button></div><div class="html-lab" style="margin-top:17px"><div class="code-panel"><div class="micro">HTML snippet</div><pre id="htmlSnippet"></pre></div><div class="preview-panel"><div class="micro">Small preview</div><iframe id="htmlPreview" title="HTML example preview" sandbox=""></iframe></div></div><div class="actions-row"><button class="btn" id="copyHtml" type="button">Copy shown HTML</button></div><p class="small-note">The example destination is a placeholder. Replace it with your actual Canvas page URL or approved course-relative link and test it in Student View.</p>`);
-      let currentCode=broken;const paint=(isFixed)=>{currentCode=isFixed?fixed:broken;$('htmlSnippet').textContent=currentCode;$('showBroken').classList.toggle('selected',!isFixed);$('showFixed').classList.toggle('selected',isFixed);$('htmlPreview').srcdoc=`<!doctype html><html><head><style>body{font-family:Arial,sans-serif;padding:14px;color:#2d1b00}.card{border:2px solid #2d1b00;border-radius:12px;padding:10px;background:#fff5dd}h3{margin:5px 0 15px;font-size:18px}a{color:#b7410e}</style></head><body>${currentCode}</body></html>`;};$('showBroken').addEventListener('click',()=>paint(false));$('showFixed').addEventListener('click',()=>paint(true));$('copyHtml').addEventListener('click',()=>copy(currentCode));paint(false);
-    } else if(current===6){
-      setLab('Course contact-hour calculator',`<h4>Build a tiny tool. Test the math.</h4><p>Here is a working example of a single-purpose app that AI can help you create. Change any number below.</p><div class="estimate-grid"><label class="field"><span>Meetings each week</span><input id="meetings" type="number" inputmode="numeric" min="0" max="30" step="1" value="2"></label><label class="field"><span>Minutes per meeting</span><input id="minutes" type="number" inputmode="numeric" min="0" max="600" step="5" value="50"></label><label class="field"><span>Number of weeks</span><input id="weeks" type="number" inputmode="numeric" min="0" max="60" step="1" value="15"></label></div><div class="hours-result" aria-live="polite"><div><small>Estimated scheduled contact time</small><div id="hoursEquation"></div></div><strong id="hoursAnswer">25 hours</strong></div><p class="small-note">Scheduled meeting time only. This is not a determination of official academic credit hours; confirm your institution's policies.</p>`);
-      function calc(){const meet=Math.max(0,Number($('meetings').value)||0),mins=Math.max(0,Number($('minutes').value)||0),weeks=Math.max(0,Number($('weeks').value)||0);const h=meet*mins*weeks/60;$('hoursAnswer').textContent=(Number.isFinite(h)?Number(h.toFixed(2)).toLocaleString():'0')+' hours';$('hoursEquation').textContent=`${meet} meetings x ${mins} min x ${weeks} weeks / 60`;}['meetings','minutes','weeks'].forEach(k=>$(k).addEventListener('input',calc));calc();
+  async function copy(text, message) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const t = document.createElement('textarea');
+        t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        const ok = document.execCommand('copy');
+        t.remove();
+        if (!ok) throw new Error('copy unavailable');
+      }
+      toast(message || 'Copied to clipboard');
+    } catch (e) {
+      toast('Select and copy the text manually');
     }
   }
-  $('copyPrompt').addEventListener('click',()=>copy(skills[current].prompt));
-  $('markTried').addEventListener('click',()=>{if(practiced.includes(current)) practiced=practiced.filter(x=>x!==current);else practiced.push(current);updateProgress();updateCards();renderDetail();toast(practiced.includes(current)?'Skill marked as tried':'Skill unmarked');});
-  $('copyCheat').addEventListener('click',()=>copy('THE AI SEVEN - A practical field guide\n\n'+skills.map((s,i)=>`${i+1}. ${s.title}\n${s.definition}\nExample: ${s.example}\nTry: ${s.prompt}`).join('\n\n')));
-  updateProgress();renderCards();selectSkill(0,false);
+  function setPressed(el, on) { el.classList.toggle('selected', on); el.setAttribute('aria-pressed', String(on)); }
+
+  // ---- Progress ----
+  function updateProgress() {
+    const n = practiced.length;
+    $('progressText').textContent = `${n} / ${skills.length} tried`;
+    $('progressFill').style.width = (n / skills.length * 100) + '%';
+    $('printBadge').hidden = n < skills.length;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(practiced)); } catch (e) {}
+  }
+
+  // ---- Skill cards ----
+  function renderCards() {
+    $('skillGrid').innerHTML = skills.map((s, i) => `<button type="button" class="skill-card" data-skill="${i}"><span class="num">${pad(i)}</span><span class="card-symbol">${svg(s.icon)}</span><span class="card-text"><strong>${safe(s.title)}</strong><small>${safe(s.short)}</small></span><span class="card-foot"><span class="tried-tag">${ICON_CHECK}Tried</span><span class="mini-arrow">${ICON_ARROW}</span></span></button>`).join('');
+    $('skillGrid').querySelectorAll('[data-skill]').forEach(b => b.addEventListener('click', () => go(Number(b.dataset.skill), 'focus')));
+  }
+  function updateCards() {
+    $('skillGrid').querySelectorAll('[data-skill]').forEach(b => {
+      const i = Number(b.dataset.skill), tried = practiced.includes(i);
+      b.classList.toggle('active', i === current);
+      b.classList.toggle('tried', tried);
+      b.setAttribute('aria-pressed', String(i === current));
+      b.setAttribute('aria-label', `Skill ${i + 1}: ${skills[i].title}${tried ? ', tried' : ''}`);
+    });
+  }
+
+  // ---- Skill detail ----
+  const promptParts = i => skills[i].prompt.split(/(\[[^\]]+\])/).filter(Boolean);
+  const isBlank = part => /^\[.+\]$/.test(part) && !/^\[paste/i.test(part);
+  const isPasteSlot = part => /^\[paste/i.test(part);
+  function filledPrompt(i) {
+    return promptParts(i).map((part, k) => isBlank(part) ? ((blanks[i][k] || '').trim() || part) : part).join('');
+  }
+  function renderPrompt() {
+    const box = $('detailPrompt'), values = blanks[current];
+    box.textContent = '';
+    promptParts(current).forEach((part, k) => {
+      if (isPasteSlot(part)) {
+        const slot = document.createElement('span');
+        slot.className = 'paste-slot';
+        slot.textContent = part;
+        box.append(slot);
+      } else if (isBlank(part)) {
+        const name = part.slice(1, -1);
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'blank';
+        input.placeholder = name;
+        input.value = values[k] || '';
+        input.autocomplete = 'off';
+        input.setAttribute('aria-label', 'Fill in: ' + name);
+        const fit = () => { input.size = Math.max(name.length, input.value.length, 4) + 1; };
+        input.addEventListener('input', () => { values[k] = input.value; fit(); });
+        fit();
+        box.append(input);
+      } else {
+        box.append(part);
+      }
+    });
+    $('promptHint').hidden = !promptParts(current).some(isBlank);
+  }
+  function renderDetail() {
+    const s = skills[current], tried = practiced.includes(current);
+    $('detailNum').textContent = pad(current);
+    $('detailTitle').textContent = s.title;
+    $('detailTagline').textContent = s.tagline;
+    $('detailDefinition').textContent = s.definition;
+    $('detailGuide').hidden = !s.guide;
+    if (s.guide) {
+      $('detailGuideTitle').textContent = s.guide.title;
+      $('detailGuideList').innerHTML = s.guide.items.map(([q, a]) => `<li><span><b>${safe(q)}</b>${safe(a)}</span></li>`).join('');
+    }
+    $('detailExample').textContent = s.example;
+    $('detailAction').textContent = s.action;
+    $('detailMistake').textContent = s.mistake;
+    renderPrompt();
+    $('markTried').innerHTML = tried ? ICON_CHECK + ' Tried. Click to undo' : 'Mark as tried ' + ICON_CHECK;
+    $('markTried').setAttribute('aria-pressed', String(tried));
+    renderPager();
+  }
+  function renderPager() {
+    const prev = current - 1, next = (current + 1) % skills.length;
+    $('prevSkill').hidden = prev < 0;
+    if (prev >= 0) {
+      $('prevSkill').href = '#skill-' + (prev + 1);
+      $('prevSkill').dataset.target = prev;
+      $('prevTitle').textContent = `${pad(prev)} ${skills[prev].title}`;
+    }
+    $('nextSkill').href = '#skill-' + (next + 1);
+    $('nextSkill').dataset.target = next;
+    $('nextDir').textContent = next === 0 ? 'Back to the start' : 'Next skill';
+    $('nextTitle').textContent = `${pad(next)} ${skills[next].title}`;
+  }
+  function scrollToDetail() {
+    $('detailCard').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  // ---- Labs ----
+  function labModelMatcher(body) {
+    body.innerHTML = `
+      <h4>What are you trying to do?</h4>
+      <p>Pick a task to see a sensible first model, why it fits, and how to check what it gives you.</p>
+      <div class="lab-control-row">${MODEL_TASKS.map((t, i) => `<button class="lab-pill" type="button" data-task="${i}" aria-pressed="false">${safe(t.label)}</button>`).join('')}</div>
+      <div class="lab-result" id="modelResult" aria-live="polite"></div>
+      <p class="small-note">Not sure? Send your prompt to ${safe(MODELS.router)} and it picks a model for you. Your BoodleBox plan decides which models you can use; type @ in the chat bar to see the current list.</p>`;
+    const pills = body.querySelectorAll('[data-task]');
+    const choose = i => {
+      pills.forEach(b => setPressed(b, Number(b.dataset.task) === i));
+      const t = MODEL_TASKS[i];
+      $('modelResult').innerHTML = `<strong>Start with ${safe(t.start)}</strong>
+        <dl class="model-facts">
+          <div><dt>Why</dt><dd>${safe(t.why)}</dd></div>
+          <div><dt>Watch out</dt><dd>${safe(t.watch)}</dd></div>
+          <div><dt>Check it</dt><dd>${safe(t.check)}</dd></div>
+        </dl>`;
+    };
+    pills.forEach(b => b.addEventListener('click', () => choose(Number(b.dataset.task))));
+    choose(0);
+  }
+
+  function labPromptUpgrade(body) {
+    body.innerHTML = `
+      <h4>Make a vague request clearer.</h4>
+      <p>This simple template builder shows how adding purpose, audience, constraints, and format strengthens your request.</p>
+      <div class="field-grid">
+        <label class="field"><span>What should AI do?</span><input id="pTask" value="Draft a course announcement"></label>
+        <label class="field"><span>Who is it for?</span><input id="pAudience" value="First-year online students"></label>
+        <label class="field"><span>Important details</span><input id="pDetails" value="Friendly tone; remind them of Friday deadline"></label>
+        <label class="field"><span>Output format</span><input id="pFormat" value="Under 130 words, with a clear next step"></label>
+      </div>
+      <div class="actions-row">
+        <button class="btn orange" type="button" id="buildPrompt">Build improved prompt <span aria-hidden="true">&rarr;</span></button>
+        <button class="btn" type="button" id="copyBuiltPrompt">Copy result</button>
+      </div>
+      <div class="output" id="builtPrompt" aria-live="polite"></div>`;
+    const field = (id, fallback) => $(id).value.trim() || fallback;
+    const build = () => {
+      $('builtPrompt').textContent = [
+        `Task: ${field('pTask', '[describe task]')}`,
+        `Audience: ${field('pAudience', '[describe audience]')}`,
+        `Important details: ${field('pDetails', '[include requirements]')}`,
+        `Output: ${field('pFormat', '[specify format]')}`,
+        'If key information is missing, flag it instead of making it up.'
+      ].join('\n');
+    };
+    $('buildPrompt').addEventListener('click', build);
+    $('copyBuiltPrompt').addEventListener('click', () => copy($('builtPrompt').textContent));
+    build();
+  }
+
+  function labContextChecklist(body) {
+    const items = ['Clear goal and audience', 'Relevant source file(s)', 'Output format or rubric', 'Privacy and accuracy checks'];
+    body.innerHTML = `
+      <h4>What should you bring to the chat?</h4>
+      <p>Check each item as you prepare a request. Good context matters more than extra-long instructions.</p>
+      <div class="checks">${items.map((o, i) => `<label class="check"><input type="checkbox" class="context-check"${i === 0 ? ' checked' : ''}><span>${o}</span></label>`).join('')}</div>
+      <div class="lab-result" id="contextResult" aria-live="polite"></div>`;
+    const status = () => {
+      const n = body.querySelectorAll('.context-check:checked').length;
+      const done = n === items.length;
+      $('contextResult').innerHTML = `<strong>${n} of ${items.length} context checks ready</strong><p>${done ? 'Great. Attach the right materials, state the goal, and review the result before using it.' : 'Keep going. Include enough reliable context for AI to work with and protect private information.'}</p>`;
+    };
+    body.querySelectorAll('.context-check').forEach(c => c.addEventListener('change', status));
+    status();
+  }
+
+  function labTroubleshooter(body) {
+    const steps = [
+      ['Describe the gap', 'Write down what you expected and what actually happened. Include the exact error message if available.'],
+      ['Test one safe change', 'Ask AI for the smallest diagnostic test. Save the current settings so you can undo the change.'],
+      ['Verify and document', 'Check whether the fix worked. Report the result to AI and record the solution for next time.']
+    ];
+    let step = 0;
+    body.innerHTML = `
+      <h4>One change at a time.</h4>
+      <p>Click through a low-risk troubleshooting routine that works for unfamiliar software and workflows.</p>
+      <div class="stepper" id="steps" aria-hidden="true"></div>
+      <div class="lab-result" id="stepContent" aria-live="polite"></div>
+      <div class="actions-row">
+        <button class="btn" id="stepBack" type="button">&larr; Previous</button>
+        <button class="btn orange" id="stepNext" type="button">Next step &rarr;</button>
+      </div>`;
+    const last = steps.length - 1;
+    const paint = () => {
+      $('steps').innerHTML = steps.map((_, i) => `<span class="step ${i === step ? 'current' : i < step ? 'complete' : ''}">${i + 1}</span>`).join('');
+      $('stepContent').innerHTML = `<strong><span class="visually-hidden">Step ${step + 1} of ${steps.length}: </span>${steps[step][0]}</strong><p>${steps[step][1]}</p>`;
+      $('stepBack').disabled = step === 0;
+      $('stepNext').textContent = step === last ? 'Start again' : 'Next step →';
+    };
+    $('stepBack').addEventListener('click', () => { step = Math.max(0, step - 1); paint(); });
+    $('stepNext').addEventListener('click', () => { step = step === last ? 0 : step + 1; paint(); });
+    paint();
+  }
+
+  function labSkillBuilder(body) {
+    body.innerHTML = `
+      <h4>Give a repeatable task a name.</h4>
+      <p>Turn the routine into a small draft you can review and save in BoodleBox.</p>
+      <div class="field-grid">
+        <label class="field"><span>Skill name</span><input id="skillName" value="Course Announcement Reviewer"></label>
+        <label class="field"><span>What happens each time?</span><input id="skillJob" value="Review a course announcement for clarity"></label>
+        <label class="field wide"><span>Your rules</span><textarea id="skillRules">Check for clear deadline, next step, friendly tone, and accessibility.</textarea></label>
+      </div>
+      <div class="actions-row">
+        <button class="btn orange" id="makeSkill" type="button">Draft my Skill &rarr;</button>
+        <button class="btn" id="copySkill" type="button">Copy draft</button>
+      </div>
+      <div class="output" id="skillDraft" aria-live="polite"></div>
+      <p class="small-note">In BoodleBox, go to Banks &gt; Skills &gt; Create skill. Choose Write or upload a SKILL.md file, then save. Type / in chat to call your Skill or choose the built-in skill-creator to draft one. Skills are personal as of October 2026.</p>`;
+    const field = (id, fallback) => $(id).value.trim() || fallback;
+    const create = () => {
+      $('skillDraft').textContent = [
+        `Name: ${field('skillName', '[Skill name]')}`,
+        `Description: ${field('skillJob', '[repeatable job]')}`,
+        'Instructions:',
+        '1. Ask for the source material and intended audience.',
+        `2. ${field('skillRules', '[list your quality checks]')}`,
+        '3. Flag missing details rather than guessing.',
+        '4. Return a concise reviewed version and a short list of suggested changes.',
+        '5. Ask for human approval before any final use.'
+      ].join('\n');
+    };
+    $('makeSkill').addEventListener('click', create);
+    $('copySkill').addEventListener('click', () => copy($('skillDraft').textContent));
+    create();
+  }
+
+  function labHtmlRepair(body) {
+    body.innerHTML = `
+      <h4>Spot what broke, then fix it.</h4>
+      <p>This announcement was pasted into Canvas from a Word document. It has five problems, and some are invisible until you read the code. Switch between the broken and fixed versions to compare.</p>
+      <div class="lab-control-row">
+        <button type="button" class="lab-pill" id="showBroken" aria-pressed="true">Before: broken</button>
+        <button type="button" class="lab-pill" id="showFixed" aria-pressed="false">After the fix</button>
+      </div>
+      <div class="html-lab">
+        <div class="code-panel" id="codePanel"><div class="micro">HTML snippet</div><pre id="htmlSnippet"></pre></div>
+        <div class="preview-panel"><div class="micro">What students see</div><iframe id="htmlPreview" title="Preview of the HTML snippet" sandbox=""></iframe></div>
+      </div>
+      <div class="lab-result"><strong id="issueTitle"></strong><ol class="issue-list" id="issueList"></ol></div>
+      <div class="actions-row"><button class="btn" id="copyHtml" type="button">Copy shown HTML</button></div>
+      <p class="small-note">The fixed link destination is a placeholder. Replace it with your actual Canvas page URL or approved course-relative link and test it in Student View.</p>`;
+    let fixed = false;
+    const codeOf = version => version.lines.map(line => line[0]).join('\n');
+    const previewDoc = code => `<!doctype html><html><head><style>body{margin:0;padding:14px;font:15px/1.5 Arial,sans-serif;color:#2d1b00}.card{border:2px solid #2d1b00;border-radius:12px;padding:12px 14px;background:#fff5dd}h3{margin:4px 0 12px;font-size:26px;line-height:1.15}p{margin:0 0 10px}img{display:block;max-width:100%;height:auto;margin:0 0 10px}a{color:#b7410e}</style></head><body>${code.replace('week5-banner.png', BANNER_SRC)}</body></html>`;
+    const paint = () => {
+      const version = fixed ? HTML_FIX.after : HTML_FIX.before;
+      setPressed($('showBroken'), !fixed);
+      setPressed($('showFixed'), fixed);
+      $('codePanel').classList.toggle('is-fixed', fixed);
+      $('htmlSnippet').innerHTML = version.lines.map(([code, marks]) => `<span class="code-line${marks ? ' flagged' : ''}"><span class="code-mark" aria-hidden="true">${marks ? marks.join(' ') : ''}</span><span>${safe(code)}</span></span>`).join('');
+      $('issueTitle').textContent = version.title;
+      $('issueList').innerHTML = version.notes.map(note => `<li>${note}</li>`).join('');
+      $('htmlPreview').srcdoc = previewDoc(codeOf(version));
+    };
+    $('showBroken').addEventListener('click', () => { fixed = false; paint(); });
+    $('showFixed').addEventListener('click', () => { fixed = true; paint(); });
+    $('copyHtml').addEventListener('click', () => copy(codeOf(fixed ? HTML_FIX.after : HTML_FIX.before)));
+    paint();
+  }
+
+  function labCalculator(body) {
+    body.innerHTML = `
+      <h4>Build a tiny tool. Test the math.</h4>
+      <p>Here is a working example of a single-purpose app that AI can help you create. Change any number below.</p>
+      <div class="estimate-grid">
+        <label class="field"><span>Meetings each week</span><input id="meetings" type="number" inputmode="numeric" min="0" max="30" step="1" value="2"></label>
+        <label class="field"><span>Minutes per meeting</span><input id="minutes" type="number" inputmode="numeric" min="0" max="600" step="5" value="50"></label>
+        <label class="field"><span>Number of weeks</span><input id="weeks" type="number" inputmode="numeric" min="0" max="60" step="1" value="15"></label>
+      </div>
+      <div class="hours-result"><div><small>Estimated scheduled contact time</small><div id="hoursEquation"></div></div><strong id="hoursAnswer">25 hours</strong></div>
+      <div class="visually-hidden" id="calcStatus" aria-live="polite"></div>
+      <p class="small-note">Scheduled meeting time only. This is not a determination of official academic credit hours; confirm your institution's policies.</p>`;
+    let announceTimer;
+    const value = id => Math.max(0, Number($(id).value) || 0);
+    const calc = announce => {
+      const meet = value('meetings'), mins = value('minutes'), weeks = value('weeks');
+      const hours = meet * mins * weeks / 60;
+      const text = (Number.isFinite(hours) ? Number(hours.toFixed(2)).toLocaleString() : '0') + ' hours';
+      $('hoursAnswer').textContent = text;
+      $('hoursEquation').textContent = `${meet} meetings x ${mins} min x ${weeks} weeks / 60`;
+      if (!announce) return;
+      // Announce once typing pauses, not on every keystroke. The lab may have been swapped out by then.
+      clearTimeout(announceTimer);
+      announceTimer = setTimeout(() => { const status = $('calcStatus'); if (status) status.textContent = 'Estimated ' + text; }, 800);
+    };
+    ['meetings', 'minutes', 'weeks'].forEach(k => $(k).addEventListener('input', () => calc(true)));
+    calc(false);
+  }
+
+  const labs = [
+    { title: 'Model matcher', render: labModelMatcher },
+    { title: 'Prompt upgrade station', render: labPromptUpgrade },
+    { title: 'Context packing checklist', render: labContextChecklist },
+    { title: 'Step-by-step troubleshooter', render: labTroubleshooter },
+    { title: 'BoodleBox Skill builder', render: labSkillBuilder },
+    { title: 'Canvas HTML repair shop', render: labHtmlRepair },
+    { title: 'Course contact-hour calculator', render: labCalculator }
+  ];
+  function renderLabChips() {
+    $('labChips').innerHTML = skills.map((s, i) => `<button type="button" class="lab-chip" data-lab="${i}" aria-pressed="false" aria-label="Lab ${i + 1}: ${safe(labs[i].title)}">${pad(i)}</button>`).join('');
+    $('labChips').querySelectorAll('[data-lab]').forEach(b => b.addEventListener('click', () => go(Number(b.dataset.lab))));
+  }
+  function renderLab() {
+    $('labLabel').textContent = labs[current].title;
+    labs[current].render($('labBody'));
+    $('labChips').querySelectorAll('[data-lab]').forEach(b => setPressed(b, Number(b.dataset.lab) === current));
+  }
+
+  // ---- Selecting a skill; the URL hash (#skill-3) makes each one linkable ----
+  function selectSkill(i, mode) {
+    current = i;
+    updateCards();
+    renderDetail();
+    renderLab();
+    if (mode === 'focus') $('detailCard').focus({ preventScroll: true });
+    if (mode) scrollToDetail();
+  }
+  const skillUrl = i => location.href.split('#')[0] + '#skill-' + (i + 1);
+  function go(i, mode) {
+    selectSkill(i, mode);
+    try { history.replaceState(null, '', '#skill-' + (i + 1)); } catch (e) {}
+  }
+  function skillFromHash() {
+    const m = /^#skill-(\d+)$/.exec(location.hash);
+    const i = m ? Number(m[1]) - 1 : -1;
+    return i >= 0 && i < skills.length ? i : -1;
+  }
+
+  // ---- Cheat sheet, badge, and completion ----
+  const guardLine = () => $('guardText').textContent.trim();
+  function cheatSheetText() {
+    return ['THE AI SEVEN - A practical field guide', guardLine()].concat(skills.map((s, i) =>
+      `${i + 1}. ${s.title}\n${s.definition}\nExample: ${s.example}\nTiny move: ${s.action}\nWatch out: ${s.mistake}\nTry: ${filledPrompt(i)}`
+    )).join('\n\n');
+  }
+  function buildCheatSheet() {
+    $('sheetGuard').textContent = guardLine();
+    $('cheatList').innerHTML = skills.map((s, i) => `<li><h2>${pad(i)} ${safe(s.title)}</h2><p>${safe(s.definition)}</p><p><b>Example:</b> ${safe(s.example)}</p><p><b>Tiny move:</b> ${safe(s.action)}</p><p><b>Watch out:</b> ${safe(s.mistake)}</p><p class="sheet-prompt"><b>Try:</b> ${safe(filledPrompt(i))}</p></li>`).join('');
+  }
+  function buildBadge() {
+    const name = $('badgeName').value.trim();
+    $('badgeWho').textContent = name;
+    $('badgeWho').hidden = !name;
+    $('badgeSkills').innerHTML = skills.map(s => `<li>${safe(s.title)}</li>`).join('');
+    $('badgeDate').textContent = 'Completed ' + new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+  function openDone() {
+    const d = $('doneDialog');
+    if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+  }
+  function closeDone() {
+    const d = $('doneDialog');
+    if (typeof d.close === 'function') d.close(); else d.removeAttribute('open');
+  }
+  function printBadge() {
+    closeDone();
+    document.body.dataset.print = 'badge';
+    window.print();
+  }
+  window.addEventListener('beforeprint', () => { buildCheatSheet(); buildBadge(); });
+  window.addEventListener('afterprint', () => { delete document.body.dataset.print; });
+
+  // ---- Wiring ----
+  $('copyPrompt').addEventListener('click', () => {
+    const text = filledPrompt(current);
+    copy(text, promptParts(current).some(isBlank) && /\[[^\]]+\]/.test(text) ? 'Copied. Fill in the [brackets] before you send it.' : 'Copied to clipboard');
+  });
+  $('copyLink').addEventListener('click', () => copy(skillUrl(current), `Link to skill ${current + 1} copied`));
+  $('markTried').addEventListener('click', () => {
+    const was = practiced.includes(current);
+    practiced = was ? practiced.filter(x => x !== current) : practiced.concat(current);
+    updateProgress();
+    updateCards();
+    renderDetail();
+    if (!was && practiced.length === skills.length) { openDone(); return; }
+    toast(`${was ? 'Unmarked' : 'Marked as tried'}. ${practiced.length} of ${skills.length} tried.`);
+  });
+  ['prevSkill', 'nextSkill'].forEach(id => $(id).addEventListener('click', e => {
+    e.preventDefault();
+    go(Number($(id).dataset.target), 'focus');
+  }));
+  $('copyCheat').addEventListener('click', () => copy(cheatSheetText(), 'Cheat sheet copied'));
+  $('printCheat').addEventListener('click', () => window.print());
+  $('printBadge').addEventListener('click', () => { document.body.dataset.print = 'badge'; window.print(); });
+  $('printBadgeDialog').addEventListener('click', printBadge);
+  $('closeDone').addEventListener('click', closeDone);
+  window.addEventListener('hashchange', () => {
+    const i = skillFromHash();
+    if (i >= 0) selectSkill(i, 'focus');
+  });
+
+  updateProgress();
+  renderCards();
+  renderLabChips();
+  const start = skillFromHash();
+  selectSkill(start >= 0 ? start : 0, false);
+  if (start >= 0) requestAnimationFrame(scrollToDetail);
 })();
 </script>
 </body>
